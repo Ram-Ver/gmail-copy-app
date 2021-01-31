@@ -4,7 +4,7 @@ import PublicLayout from "./Containers/PublicLayout";
 function App() {
   return (
     <div>
-      <PrivateLayout />
+      {/* <PrivateLayout /> */}
       <PublicLayout />
     </div>
   );
