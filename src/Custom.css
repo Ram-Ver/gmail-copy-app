@@ -1,0 +1,203 @@
+:root {
+  --whitesmoke: #f5f5f5;
+  --gray: #808080;
+  --white: #ffffff;
+  --red: #ff0000;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--whitesmoke);
+  /* position: sticky; */
+  top: 0;
+  z-index: 1;
+  padding: 5px;
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+  flex: 0.2;
+}
+
+.header__left > img {
+  width: "109px";
+  height: "40px";
+}
+
+.header__middle {
+  flex: 0.5;
+}
+
+.header__searchbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--whitesmoke);
+  border-radius: 5px;
+  padding: 3px;
+}
+.header__searchbar > .MuiSvgIcon-root {
+  color: var(--gray);
+}
+
+.header__searchbar > input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 100%;
+  padding: 10px;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  flex: 0.2;
+  margin-left: 150px;
+}
+
+/* appbody */
+.app__body {
+  margin-top: 20px;
+  display: flex;
+}
+
+/* sidebar */
+
+.sidebar {
+  flex: 0.2;
+  max-width: 350px;
+  height: 100vh;
+}
+
+.sidebar__option {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.sidebar__option > .MuiSvgIcon-root {
+  color: var(--gray);
+}
+
+.sidebar__option > h3 {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.sidebar__option:hover {
+  background-color: var(--whitesmoke);
+  color: var(--red);
+}
+
+.sidebar__option:hover > p {
+  font-weight: 600;
+}
+
+.sidebar__options__Container {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--whitesmoke);
+}
+
+.sidebar__Meet,
+.sidebar__Hangouts {
+  padding-top: 20px;
+  border-bottom: 1px solid var(--whitesmoke);
+}
+/* .meet__options{
+    display: flex;
+} */
+.sidebar__Meet > h3,
+.sidebar__Hangouts > h3 {
+  font-weight: 400;
+  text-align: center;
+}
+
+.hangouts__options {
+  display: inline;
+}
+
+/* email */
+
+.email__Container {
+  flex: 1;
+}
+.email__tools__header {
+  display: flex;
+  flex: auto;
+  justify-content: space-between;
+  padding: 0px 10px;
+}
+
+.email__list {
+  background-color: var(--whitesmoke);
+  height: 100vh;
+  padding: 20px;
+}
+
+
+.email__list__header {
+padding:10px 40px;
+border:1px solid var(--whitesmoke);
+}
+
+.email__list__header_option > h3{
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  padding-left: 10px;
+}
+.email__list__header:hover{
+box-shadow: 4px 7px 4px -4px rgba(0, 0, 0, 0.24);
+
+}
+
+.email__row__container {
+  background-color: var(--white);
+  height: 100vh;
+  box-shadow: 0px 7px 5px 4px rgba(0, 0, 0, 0.24);
+}
+
+.email__row{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.email__row__left__section{
+display: flex;
+align-items: center;
+}
+
+.email__row__left__section>h3{
+  font-size: 15px;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin-left: 20px;
+}
+.email__row__left__section > .MuiSvgIcon-root{
+color: var(--gray);
+}
+
+.email__row:hover{
+  cursor: pointer;
+  box-shadow: 3px 3px 4px 4px rgba(0, 0, 0, 0.24);
+
+}
+
+.email__header__options{
+  display: flex;
+
+}
+
+.email__list__header_option{
+display: flex;
+}
