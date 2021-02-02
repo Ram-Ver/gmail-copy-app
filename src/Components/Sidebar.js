@@ -10,15 +10,18 @@ import DraftsIcon from "@material-ui/icons/Drafts";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import KeyboardIcon from "@material-ui/icons/Keyboard";
+import { useState } from "react";
 
-function Sidebar() {
+function Sidebar({isOpen}) {
+
   return (
-    <div className="sidebar">
+    <div className="sidebar" >
       <IconButton>
         <AddIcon />
         Compose
       </IconButton>
       <div className="sidebar__options__Container">
+        
         <SidebarOptions
           Icon={InboxOutlined}
           title={"inbox"}

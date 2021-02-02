@@ -7,12 +7,16 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import AppsIcon from "@material-ui/icons/Apps";
 import React from "react";
 
-function Header() {
+function Header({ sidebarHandler }) {
   return (
     <div className="header">
       <div className="header__left">
         <IconButton>
-          <MenuIcon />
+          <MenuIcon
+            onClick={() => {
+              sidebarHandler();;
+            }}
+          />
         </IconButton>
         <img
           src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r2.png"
