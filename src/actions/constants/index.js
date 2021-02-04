@@ -1,0 +1,4 @@
+const USER__LOGIN = "USER__LOGIN";
+const USER__LOGOUT = "USER__LOGOUT";
+
+export { USER__LOGIN, USER__LOGOUT };
