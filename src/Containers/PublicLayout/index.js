@@ -1,6 +1,5 @@
 import { Avatar } from "@material-ui/core";
-import React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import gmailLogoImg from "../../assets/images/Gmail-logo.png";
@@ -13,16 +12,18 @@ function PublicLayout() {
   const [password, setPassword] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
 
   const loginHandler = (e) => {
     e.preventDefault();
-    dispatch(login(true));
-    console.log(user, "userreducer");
     if (userName === "ram@gmail.com" && password === "123456") {
+    dispatch(login(true));
       history.push("/admin");
-    } else {
-      alert("please check your email/phone or password");
+    } else if (userName === "" || password === "") {
+      alert("email/phone or password  not allowed to be empty");
+    }
+    else {
+      alert("please check your email/phone or password or not to be empty");
+
     }
   };
   return (

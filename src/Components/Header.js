@@ -1,13 +1,25 @@
-import { Avatar, Button, IconButton } from "@material-ui/core";
+import { Avatar, IconButton } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import SettingsIcon from "@material-ui/icons/Settings";
 import AppsIcon from "@material-ui/icons/Apps";
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../actions/action";
 
 function Header({ sidebarHandler }) {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+  useEffect(() => {
+    console.log(user, "useeer");
+  }, [user]);
+
+  const logoutHandler = () => {
+    dispatch(login(false));
+  };
+
   return (
     <div className="header">
       <div className="header__left">
@@ -39,8 +51,13 @@ function Header({ sidebarHandler }) {
         <IconButton>
           <AppsIcon />
         </IconButton>
-        <Avatar />
-         
+        <Avatar src={user.userProfile} />
+
+        <p
+          style={{ marginLeft: "10px", cursor: "pointer" }}
+          onClick={logoutHandler}>
+          Logout
+        </p>
       </div>
     </div>
   );
