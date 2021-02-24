@@ -28,7 +28,7 @@
   height: 20vh;
 }
 
-.login__header > h1 {
+.login__header > h1, .create__an__account__body > h1{
   margin-top: -30px;
   font-size: 45px;
   font-weight: 200;
@@ -65,7 +65,7 @@
   margin-top: 3vh;
 }
 
-.login__feild > form > input {
+.login__feild > form > input,.create__an__account__body > input {
   padding: 8px;
   margin-bottom: 2vh;
   width: 100%;
@@ -75,7 +75,7 @@
   font-size: 17px;
 }
 
-.login__feild > form > button {
+.login__feild > form > button,.create__an__account__body>button {
   padding: 8px;
   margin-bottom: 2vh;
   width: 100%;
@@ -87,8 +87,43 @@
   font-size: 17px;
 }
 
-.login__feild > form > button:hover{
+.login__feild > form > button:hover,.create__an__account__body>button:hover{
   background-color: var(--lightBlue);
+}
+
+.create__an__account{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 10vh;
+  border-radius: 10px;
+
+}
+
+
+.create__an__account__body{
+  height: 80vh;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: var(--whitesmoke);
+
+}
+.create__an__account__body > h1{
+  padding:50px  100px 50px 100px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid var(--gray);
+
+}
+
+.create__an__account__body{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.create__an__account__body .MuiButton-containedPrimary{
+  background-color: var(--blue);
 }
 
 
@@ -287,3 +322,50 @@
 .email__list__header_option {
   display: flex;
 }
+
+.sent__email{
+  /* display: flex; */
+  background-color: var(--whitesmoke);
+  max-width: 400px;
+  max-height: 400px;
+  border-radius: 10px;
+
+}
+
+.sent__email__header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  padding: 10px;
+  border-bottom: 1px solid black;
+  color: var(--gray);
+  font-size: 16px;
+  font-weight: 600;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.sent__email__body{
+display: flex;
+flex-direction: column;
+padding: 20px;
+}
+
+.sent__email__body>input{
+  padding: 20px;
+  margin-bottom: 20px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+
+.sent__email_description{
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+

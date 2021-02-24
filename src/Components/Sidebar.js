@@ -1,4 +1,4 @@
-import { IconButton } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { InboxOutlined } from "@material-ui/icons";
 import AddIcon from "@material-ui/icons/Add";
 import React from "react";
@@ -10,18 +10,21 @@ import DraftsIcon from "@material-ui/icons/Drafts";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import KeyboardIcon from "@material-ui/icons/Keyboard";
-import { useState } from "react";
+import { useDispatch } from "react-redux";
 
-function Sidebar({isOpen}) {
+function Sidebar() {
+  const dispatch = useDispatch();
 
+  const composeHandler = ()  =>  {
+        // dispatch(showSentBox(true));;
+  };;
   return (
-    <div className="sidebar" >
-      <IconButton>
+    <div className="sidebar">
+      <Button onClick={composeHandler}>
         <AddIcon />
         Compose
-      </IconButton>
+      </Button>
       <div className="sidebar__options__Container">
-        
         <SidebarOptions
           Icon={InboxOutlined}
           title={"inbox"}

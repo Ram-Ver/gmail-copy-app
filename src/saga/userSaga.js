@@ -2,9 +2,11 @@ import { USER__LOGIN } from "../actions/constants";
 import { put, takeLatest, all } from "redux-saga/effects";
 
 function* loginHandler(action) {
+   console.log("saga running");
   yield put({
-    type: USER__LOGIN,
-    payload: action.payload,
+   
+    // type: USER__LOGIN,
+    // payload: action.payload,
   });
 }
 

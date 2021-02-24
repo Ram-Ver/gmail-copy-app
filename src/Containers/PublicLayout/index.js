@@ -1,7 +1,7 @@
 import { Avatar } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import gmailLogoImg from "../../assets/images/Gmail-logo.png";
 import { login } from "../../actions/action/index";
 
@@ -15,15 +15,14 @@ function PublicLayout() {
 
   const loginHandler = (e) => {
     e.preventDefault();
-    if (userName === "ram@gmail.com" && password === "123456") {
-    dispatch(login(true));
+    if (userName === "vinod@gmail.com" && password === "123456") {
+      dispatch(login(true));
+      window.localStorage.setItem("login", "true");
       history.push("/admin");
     } else if (userName === "" || password === "") {
       alert("email/phone or password  not allowed to be empty");
-    }
-    else {
+    } else {
       alert("please check your email/phone or password or not to be empty");
-
     }
   };
   return (
@@ -50,7 +49,7 @@ function PublicLayout() {
             <button type="submit">Sign-Up</button>
           </form>
         </div>
-        <a href="#">Create an account ? </a>
+        <Link to="/create-an-account">Create an account ? </Link>
       </div>
     </div>
   );

@@ -11,7 +11,8 @@ import EmailHeaderOptions from "./EmailHeaderOptions";
 import PeopleIcon from "@material-ui/icons/People";
 import LocalOfferIcon from "@material-ui/icons/LocalOffer";
 import InboxOutlined from "@material-ui/icons/InboxOutlined";
-function EmailContainer() {
+import SentEmail from "../SentEmail/sentEmail";
+function EmailContainer(props) {
   return (
     <div className="email__Container">
       <div className="email__tools__header">
@@ -54,6 +55,11 @@ function EmailContainer() {
         />
       </div>
       <EmailList />
+      {props.isOpensentBox  ? (
+         (
+        <SentEmail modalHandler={props.modalHandler} />
+      ) 
+      ) :  null}
     </div>
   );
 }
