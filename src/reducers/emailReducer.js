@@ -1,11 +1,14 @@
 import { SENT__EMAIL } from "../actions/constants";
 
-const iState = {};
+const iState = {
+  sentEmailData: [],
+};
 
 const emailReducer = (state = iState, { type, payload }) => {
   switch (type) {
     case SENT__EMAIL:
-      return [...state, payload];
+      console.log(state, "10");
+      return { ...state, sentEmailData: [...state.sentEmailData, payload] };
 
     default:
       return state;

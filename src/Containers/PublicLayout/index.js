@@ -5,8 +5,6 @@ import { Link, useHistory } from "react-router-dom";
 import gmailLogoImg from "../../assets/images/Gmail-logo.png";
 import { login } from "../../actions/action/index";
 
-
-
 function PublicLayout() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -15,9 +13,8 @@ function PublicLayout() {
 
   const loginHandler = (e) => {
     e.preventDefault();
-    if (userName === "vinod@gmail.com" && password === "123456") {
-      dispatch(login(true));
-      window.localStorage.setItem("login", "true");
+    if (userName === "ram" && password === "123") {
+      dispatch(login());
       history.push("/admin");
     } else if (userName === "" || password === "") {
       alert("email/phone or password  not allowed to be empty");

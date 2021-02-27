@@ -6,9 +6,7 @@ import { axiosInstance } from "../../utility/https-client";
 function EmailList() {
   const [data, setData] = React.useState(undefined);
   useEffect(() => {
-   axiosInstance
-     .get("/email")
-     .then((response) => setData(response.data));
+   axiosInstance.get("/emails").then((response) => setData(response.data));
   }, []);
 
   useEffect(()=>{

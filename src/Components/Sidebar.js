@@ -17,6 +17,7 @@ function Sidebar() {
 
   const composeHandler = ()  =>  {
         // dispatch(showSentBox(true));;
+        console.log("working");
   };;
   return (
     <div className="sidebar">

@@ -9,7 +9,7 @@ import { Modal } from "@material-ui/core";
 
 function PrivateLayout() {
   const [isOpenSidebar, setIsOpenSidebar] = useState(true);
-  const [isOpensentBox, setIsOpenSentBox] = useState(false);
+  const [sentBox, setSentBox] = useState(false);
   const user = useSelector((state) => state.user);
 
   const sidebarHandler = () => {
@@ -17,7 +17,7 @@ function PrivateLayout() {
   };
 
   const modalHandler = () => {
-    setIsOpenSentBox(!isOpensentBox);
+    setSentBox(!sentBox);
   };
 
  
@@ -28,22 +28,9 @@ function PrivateLayout() {
         {isOpenSidebar ? (
           <Sidebar isOpenSidebar={isOpenSidebar} modalHandler={modalHandler} />
         ) : null}
-        <EmailContainer
-          isOpensentBox={isOpensentBox}
-          modalHandler={modalHandler}
-        />
-        {/* {isOpensentBox  ?  <SentEmail modalHandler={modalHandler} />  :  null} */}
+        <EmailContainer />
+        <SentEmail  />
       </div>
-
-      {/* <Modal
-        open={isOpensentBox}
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}> */}
-      {/* {isOpensentBox?<SentEmail modalHandler={modalHandler} />:null} */}
-      {/* </Modal> */}
     </div>
   );
 }

@@ -1,27 +1,88 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 function CreateAnAccount() {
   const history = useHistory();
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    username: "",
+    password: "",
+  });
   const backButtonHandler = () => {
     history.push("/");
   };
+
+  const onChangeHandler = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+
+  const onSubmitHandler = () => {
+    alert("data submit successfully");
+    setFormData({
+      firstname: "",
+      lastname: "",
+      email: "",
+      phone: "",
+      username: "",
+      password: "",
+    });
+  };
+
+  const { firstname, lastname, email, username, phone, password } = formData;
   return (
     <div className="create__an__account">
       <div className="create__an__account__body">
         <h1>Create An Account</h1>
-        <input type="text" placeholder="Firstname" />
-        <input type="text" placeholder="Lastname" />
-        <input type="text" placeholder="Email" />
-        <input type="text" placeholder="Phone" />
-        <input type="text" placeholder="Username" />
-        <input type="text" placeholder="Password" />
-        <button variant="contained" color="primary">
-          Submit
-        </button>
-        <button onClick={backButtonHandler} variant="contained" color="primary">
-          Go Back
-        </button>
+        <input
+          type="text"
+          placeholder="Firstname"
+          onChange={onChangeHandler}
+          value={firstname}
+          name="firstname"
+        />
+        <input
+          type="text"
+          placeholder="Lastname"
+          onChange={onChangeHandler}
+          value={lastname}
+          name="lastname"
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          onChange={onChangeHandler}
+          value={email}
+          name="email"
+        />
+        <input
+          type="phone"
+          placeholder="Phone"
+          onChange={onChangeHandler}
+          value={phone}
+          name="phone"
+        />
+        <input
+          type="text"
+          placeholder="Username"
+          onChange={onChangeHandler}
+          value={username}
+          name="username"
+        />
+        <input
+          type="text"
+          placeholder="Password"
+          onChange={onChangeHandler}
+          value={password}
+          name="password"
+        />
+        <button onClick={onSubmitHandler}>Submit</button>
+        <button onClick={backButtonHandler}>Go Back</button>
       </div>
     </div>
   );

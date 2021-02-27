@@ -5,13 +5,13 @@ function* loginHandler(action) {
    console.log("saga running");
   yield put({
    
-    // type: USER__LOGIN,
+    type: USER__LOGIN,
     // payload: action.payload,
   });
 }
 
 function* loginSaga() {
-  yield all([takeLatest(USER__LOGIN, loginHandler)]);
+  yield takeLatest(USER__LOGIN, loginHandler);
 }
 
 export default loginSaga;

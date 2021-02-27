@@ -9,7 +9,7 @@ const iState = {
 const userReducer = (state = iState, { type, payload }) => {
   switch (type) {
     case USER__LOGIN:
-      return { ...state, login: payload };
+      return { ...state, login: true };
     case USER__PROFILE__UPDATE:
       return { ...state, userProfile: payload };
     default:

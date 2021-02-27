@@ -6,17 +6,33 @@ import { useDispatch } from "react-redux";
 import { axiosInstance } from "../../utility/https-client";
 
 function SentEmail(props) {
-  const [title, setTitle] = useState("");
-  const [subject, setSubject] = useState("");
-  const [description, setDescription] = useState("");
+  const [sentData, setSentData] = useState({
+    title: "",
+    subject: "",
+    description: "",
+  });
 
   const dispatch = useDispatch();
-  const sentEmailHandler = (e) => {
-    axiosInstance
-      .post("/email", { title, subject, description })
-      .then((response) => console.log(response));
-    // dispatch(sentEmail({ title, subject, description }));
+  const sentEmailHandler = () => {
+    console.log(sentData,"20")
+    setSentData({
+      title: "",
+      subject: "",
+      description: "",
+    });
+    // axiosInstance
+    //   .post("/emails", { title, subject, description })
+    //   .then((response) => console.log(response));
+    dispatch(sentEmail(sentData));
   };
+
+  const onChangeHandler = (e) =>  {
+    const {  value,  name  } = e.target;;
+    setSentData(prev=>{return{...prev,[name]:value}})
+  };
+
+ 
+  const {title,subject,description} = sentData
   return (
     <div className="sent__email">
       <div className="sent__email__header">
@@ -30,31 +46,30 @@ function SentEmail(props) {
           type="text"
           placeholder="title"
           value={title}
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
+          name="title"
+          onChange={onChangeHandler}
         />
         <input
           type="text"
+          name="subject"
           placeholder="subject"
           value={subject}
-          onChange={(e) => {
-            setSubject(e.target.value);
-          }}
-          subject
+          onChange={onChangeHandler}
         />
         <TextareaAutosize
           className="sent__email_description"
-          // rowsMin={30}
+          name="description"
           rowsMax={30}
           aria-label="maximum height"
           placeholder="description"
           value={description}
-          onChange={(e) => {
-            setDescription(e.target.value);
-          }}
+          onChange={onChangeHandler}
         />
-        <Button onClick={sentEmailHandler}>sent</Button>
+        <Button
+        onClick={sentEmailHandler}
+        >
+          sent
+        </Button>
       </div>
     </div>
   );
