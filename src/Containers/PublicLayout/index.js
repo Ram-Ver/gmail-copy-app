@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import gmailLogoImg from "../../assets/images/Gmail-logo.png";
-import { login } from "../../actions/action/index";
+import { login } from "../../actions/userAction";
 
 function PublicLayout() {
   const [userName, setUserName] = useState("");

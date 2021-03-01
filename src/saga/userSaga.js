@@ -1,4 +1,4 @@
-import { USER__LOGIN } from "../actions/constants";
+import { USER__LOGIN } from "../constants/userConstants";
 import { put, takeLatest, all } from "redux-saga/effects";
 
 function* loginHandler(action) {

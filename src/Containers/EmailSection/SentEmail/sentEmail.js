@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import CloseIcon from "@material-ui/icons/Close";
-import { Button, IconButton, TextareaAutosize } from "@material-ui/core";
-import { sentEmail } from "../../actions/action";
+import { IconButton, TextareaAutosize } from "@material-ui/core";
+import { sentEmail } from "../../../actions/emailActions";
 import { useDispatch } from "react-redux";
-import { axiosInstance } from "../../utility/https-client";
+import { axiosInstance } from "../../../utility/https-client";
+import { hideSentBox } from "../../../actions/otherActions";
+import moment from "moment";
 
-function SentEmail(props) {
+function SentEmail() {
   const [sentData, setSentData] = useState({
     title: "",
     subject: "",
@@ -14,30 +16,34 @@ function SentEmail(props) {
 
   const dispatch = useDispatch();
   const sentEmailHandler = () => {
-    console.log(sentData,"20")
+    dispatch(sentEmail(sentData));
     setSentData({
       title: "",
       subject: "",
       description: "",
     });
-    // axiosInstance
-    //   .post("/emails", { title, subject, description })
-    //   .then((response) => console.log(response));
-    dispatch(sentEmail(sentData));
+    dispatch(hideSentBox(false));
+    const time = moment().startOf("hour").fromNow();
+    axiosInstance.post("/emails", { title, subject, description, time });
   };
 
-  const onChangeHandler = (e) =>  {
-    const {  value,  name  } = e.target;;
-    setSentData(prev=>{return{...prev,[name]:value}})
+  const onChangeHandler = (e) => {
+    const { value, name } = e.target;
+    setSentData((prev) => {
+      return { ...prev, [name]: value };
+    });
   };
 
- 
-  const {title,subject,description} = sentData
+  const sentBoxHandler = () => {
+    dispatch(hideSentBox(false));
+  };
+
+  const { title, subject, description } = sentData;
   return (
     <div className="sent__email">
       <div className="sent__email__header">
         <h3>New Mail</h3>
-        <IconButton onClick={props.modalHandler}>
+        <IconButton onClick={sentBoxHandler}>
           <CloseIcon />
         </IconButton>
       </div>
@@ -65,11 +71,7 @@ function SentEmail(props) {
           value={description}
           onChange={onChangeHandler}
         />
-        <Button
-        onClick={sentEmailHandler}
-        >
-          sent
-        </Button>
+        <button onClick={sentEmailHandler}>sent</button>
       </div>
     </div>
   );

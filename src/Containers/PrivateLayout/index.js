@@ -1,36 +1,27 @@
 import React from "react";
-import { useState } from "react";
 import Header from "../../Components/Header";
 import Sidebar from "../../Components/Sidebar";
 import EmailContainer from "../EmailSection/EmailContainer";
-import { useSelector } from "react-redux";
-import SentEmail from "../SentEmail/sentEmail";
-import { Modal } from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+import SentEmail from "../EmailSection/SentEmail/sentEmail";
+import { sidebartoggle } from "../../actions/otherActions";
 
 function PrivateLayout() {
-  const [isOpenSidebar, setIsOpenSidebar] = useState(true);
-  const [sentBox, setSentBox] = useState(false);
-  const user = useSelector((state) => state.user);
+  const sidebar = useSelector((state) => state.sidebar);
+  const dispatch = useDispatch();
 
-  const sidebarHandler = () => {
-    setIsOpenSidebar(!isOpenSidebar);
+  const sidebarToggleHandler = () => {
+    dispatch(sidebartoggle(!sidebar.isSidebarOpen));
   };
 
-  const modalHandler = () => {
-    setSentBox(!sentBox);
-  };
-
- 
   return (
-    <div>
-      <Header sidebarHandler={sidebarHandler} />
+    <div className="private__layout">
+      <Header sidebarToggleHandler={sidebarToggleHandler} />
       <div className="app__body">
-        {isOpenSidebar ? (
-          <Sidebar isOpenSidebar={isOpenSidebar} modalHandler={modalHandler} />
-        ) : null}
+        {sidebar.isSidebarOpen ? <Sidebar /> : null}
         <EmailContainer />
-        <SentEmail  />
       </div>
+      {sidebar.isSentBoxOpen ? <SentEmail /> : null}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { USER__LOGIN, USER__PROFILE__UPDATE } from "../actions/constants";
+import { USER__LOGIN, USER__PROFILE__UPDATE } from "../constants/userConstants";
 
 const iState = {
   login: false,

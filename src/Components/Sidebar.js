@@ -1,7 +1,7 @@
 import { Button } from "@material-ui/core";
 import { InboxOutlined } from "@material-ui/icons";
 import AddIcon from "@material-ui/icons/Add";
-import React from "react";
+import React, { useEffect } from "react";
 import SidebarOptions from "./SidebarOptions";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import SnoozeIcon from "@material-ui/icons/Snooze";
@@ -10,15 +10,16 @@ import DraftsIcon from "@material-ui/icons/Drafts";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import KeyboardIcon from "@material-ui/icons/Keyboard";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { showSentBox } from "../actions/otherActions";
 
 function Sidebar() {
+  const allEmails = useSelector((state) => state.email);
   const dispatch = useDispatch();
 
-  const composeHandler = ()  =>  {
-        // dispatch(showSentBox(true));;
-        console.log("working");
-  };;
+const composeHandler = () => {
+  dispatch(showSentBox(true));
+};
   return (
     <div className="sidebar">
       <Button onClick={composeHandler}>
@@ -29,42 +30,42 @@ function Sidebar() {
         <SidebarOptions
           Icon={InboxOutlined}
           title={"inbox"}
-          number={54}
+          number={1}
           color={"red"}
           selected={true}
         />
         <SidebarOptions
           Icon={StarBorderIcon}
           title={"Stared"}
-          number={54}
+          number={3}
           color={"red"}
           selected={true}
         />
         <SidebarOptions
           Icon={SnoozeIcon}
           title={"Snoozed"}
-          number={54}
+          number={55}
           color={"red"}
           selected={true}
         />
         <SidebarOptions
           Icon={SendIcon}
           title={"Sent"}
-          number={54}
+          number={allEmails.sentEmailData.length}
           color={"red"}
           selected={true}
         />
         <SidebarOptions
           Icon={DraftsIcon}
           title={"Draft"}
-          number={54}
+          number={11}
           color={"red"}
           selected={true}
         />
         <SidebarOptions
           Icon={ExpandMoreIcon}
           title={"More"}
-          number={54}
+          number={10}
           color={"red"}
           selected={true}
         />

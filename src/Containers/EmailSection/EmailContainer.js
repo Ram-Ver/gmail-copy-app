@@ -7,12 +7,13 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import KeyboardHideIcon from "@material-ui/icons/KeyboardHide";
 import EmailList from "./EmailList";
-import EmailHeaderOptions from "./EmailHeaderOptions";
+import EmailHeaderOptions from "../../Components/emailComponents/EmailHeaderOptions";
 import PeopleIcon from "@material-ui/icons/People";
 import LocalOfferIcon from "@material-ui/icons/LocalOffer";
 import InboxOutlined from "@material-ui/icons/InboxOutlined";
-import SentEmail from "../SentEmail/sentEmail";
-function EmailContainer() {
+
+function EmailContainer(props) {
+  console.log(props,"props in email container")
   return (
     <div className="email__Container">
       <div className="email__tools__header">
@@ -47,14 +48,21 @@ function EmailContainer() {
           color="red"
           selected={true}
         />
-        <EmailHeaderOptions Icon={PeopleIcon} title="Social" color="blue" />
+        <EmailHeaderOptions
+          Icon={PeopleIcon}
+          title="Social"
+          color="blue"
+          selected={false}
+        />
         <EmailHeaderOptions
           Icon={LocalOfferIcon}
           title="Promotions"
           color="green"
+          selected={false}
         />
       </div>
-      <EmailList />
+      <EmailList   />
+      {props.children}
     </div>
   );
 }
