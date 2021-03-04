@@ -9,8 +9,16 @@
   --lightBlue: #6296e9;
 }
 
+/* .menu__style{
+  top: 10px !important;
+} */
+
+.menu__style >.MuiPaper-root .MuiMenu-paper .MuiPopover-paper .MuiPaper-elevation8 .MuiPaper-rounded{
+   top: 10px !important;
+}
+
 .loader{
-      width: 100%;
+    width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -213,7 +221,7 @@
 
 .sidebar__option {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: var(--white);
   border-radius: 10px;
@@ -240,7 +248,7 @@
 }
 
 .sidebar__options__Container {
-  padding-bottom: 10px;
+  padding: 20px 20px;
   border-bottom: 1px solid var(--whitesmoke);
 }
 
@@ -394,4 +402,10 @@
 
 .sent__email__body > button {
   margin-top: 30px;
+}
+
+.email__detail{
+display: flax;
+background-color: var(--whitesmoke);
+height:100% ;
 }

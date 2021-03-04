@@ -7,19 +7,29 @@ import StarBorderIcon from "@material-ui/icons/StarBorder";
 import SnoozeIcon from "@material-ui/icons/Snooze";
 import SendIcon from "@material-ui/icons/Send";
 import DraftsIcon from "@material-ui/icons/Drafts";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import KeyboardIcon from "@material-ui/icons/Keyboard";
 import { useDispatch, useSelector } from "react-redux";
 import { showSentBox } from "../actions/otherActions";
+import { useHistory } from "react-router-dom";
+import LabelImportantIcon from "@material-ui/icons/LabelImportant";
+import ChatIcon from "@material-ui/icons/Chat";
+import ScheduleIcon from "@material-ui/icons/Schedule";
+import MailIcon from "@material-ui/icons/Mail";
+import ReportIcon from "@material-ui/icons/Report";
 
-function Sidebar() {
+function Sidebar({ path }) {
   const allEmails = useSelector((state) => state.email);
   const dispatch = useDispatch();
+  const history = useHistory();
 
-const composeHandler = () => {
-  dispatch(showSentBox(true));
-};
+  const composeHandler = () => {
+    dispatch(showSentBox(true));
+  };
+
+  const sentComponentSelectHandler = (componentPath) => {
+    history.push(componentPath);
+  };
   return (
     <div className="sidebar">
       <Button onClick={composeHandler}>
@@ -33,6 +43,7 @@ const composeHandler = () => {
           number={1}
           color={"red"}
           selected={true}
+          path={`${path}/inbox`}
         />
         <SidebarOptions
           Icon={StarBorderIcon}
@@ -40,6 +51,7 @@ const composeHandler = () => {
           number={3}
           color={"red"}
           selected={true}
+          path={`${path}/stared`}
         />
         <SidebarOptions
           Icon={SnoozeIcon}
@@ -47,6 +59,7 @@ const composeHandler = () => {
           number={55}
           color={"red"}
           selected={true}
+          path={`${path}/snoozed`}
         />
         <SidebarOptions
           Icon={SendIcon}
@@ -54,6 +67,7 @@ const composeHandler = () => {
           number={allEmails.sentEmailData.length}
           color={"red"}
           selected={true}
+          path={`${path}/sent`}
         />
         <SidebarOptions
           Icon={DraftsIcon}
@@ -61,10 +75,39 @@ const composeHandler = () => {
           number={11}
           color={"red"}
           selected={true}
+          path={`${path}/draft`}
         />
         <SidebarOptions
-          Icon={ExpandMoreIcon}
-          title={"More"}
+          Icon={LabelImportantIcon}
+          title={"Important"}
+          number={10}
+          color={"red"}
+          selected={true}
+        />
+        <SidebarOptions
+          Icon={ChatIcon}
+          title={"Chat"}
+          number={10}
+          color={"red"}
+          selected={true}
+        />
+        <SidebarOptions
+          Icon={ScheduleIcon}
+          title={"Schedulded"}
+          number={10}
+          color={"red"}
+          selected={true}
+        />
+        <SidebarOptions
+          Icon={MailIcon}
+          title={"All Mails"}
+          number={10}
+          color={"red"}
+          selected={true}
+        />
+        <SidebarOptions
+          Icon={ReportIcon}
+          title={"Spam"}
           number={10}
           color={"red"}
           selected={true}

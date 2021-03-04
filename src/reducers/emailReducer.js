@@ -4,9 +4,11 @@ import {
   SOCIAL__SELECTED,
   PROMOTION__SELECTED,
   DELETE__EMAIL,
+  SET__ID,
 } from "../constants/emailConstants";
 
 const iState = {
+  EmailRowID:null,
   allEmails: [],
   inboxEmails: [],
   draftEmails: [],
@@ -28,10 +30,16 @@ const emailReducer = (state = iState, { type, payload }) => {
     case DELETE__EMAIL: {
       console.log(payload, "reducer payload");
       const updateSentEmails = state.sentEmailData.filter((email) => {
-        return email.id != payload;
+        return email.id !== payload;
       });
       return { ...state, sentEmailData: updateSentEmails };
     }
+      
+      case SET__ID:
+      return {
+        ...state,
+       EmailRowID:payload
+      };
     case PRIMARY__SELECTED:
       return {
         ...state,

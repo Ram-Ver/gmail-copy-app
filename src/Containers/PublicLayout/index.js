@@ -15,7 +15,7 @@ function PublicLayout() {
     e.preventDefault();
     if (userName === "ram" && password === "123") {
       dispatch(login());
-      history.push("/admin");
+      history.push("/admin/inbox");
     } else if (userName === "" || password === "") {
       alert("email/phone or password  not allowed to be empty");
     } else {

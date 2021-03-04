@@ -1,11 +1,30 @@
 {
+  "inbox": [],
+  "sent": [],
+  "stared": [],
+  "draft": [],
+  "snoozed": [],
   "emails": [
     {
-      "title": "skjsjkBKJB",
-      "subject": "HJBKJBKH",
-      "description": "KBJHB\n",
-      "time": "an hour ago",
+      "title": "ram",
+      "subject": "verma",
+      "description": "verma",
+      "time": "24 minutes ago",
       "id": 1
+    },
+    {
+      "title": "vinod",
+      "subject": "123",
+      "description": "14552\n",
+      "time": "40 minutes ago",
+      "id": 2
+    },
+    {
+      "title": "vinod",
+      "subject": "verma kutta",
+      "description": "hai",
+      "time": "9 minutes ago",
+      "id": 3
     }
   ]
 }

@@ -1,0 +1,9 @@
+export { default as Inbox } from "./Inbox";
+export { default as Sent } from "./Sent";
+export { default as Stared } from "./Stared";
+export { default as Draft } from "./Draft";
+export { default as Snoozed } from "./Snoozed";
+export { default as Primary } from "./Primary";
+export { default as Social } from "./Social";
+export { default as Promotion } from "./Promotion";
+export { default as NotFound } from "./NotFound";

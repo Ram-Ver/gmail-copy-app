@@ -6,10 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import SentEmail from "../EmailSection/SentEmail/sentEmail";
 import { sidebartoggle } from "../../actions/otherActions";
 
-function PrivateLayout() {
+function PrivateLayout(props) {
+  const path = "/admin";
   const sidebar = useSelector((state) => state.sidebar);
   const dispatch = useDispatch();
-
   const sidebarToggleHandler = () => {
     dispatch(sidebartoggle(!sidebar.isSidebarOpen));
   };
@@ -18,8 +18,8 @@ function PrivateLayout() {
     <div className="private__layout">
       <Header sidebarToggleHandler={sidebarToggleHandler} />
       <div className="app__body">
-        {sidebar.isSidebarOpen ? <Sidebar /> : null}
-        <EmailContainer />
+        {sidebar.isSidebarOpen ? <Sidebar path={path} /> : null}
+        <EmailContainer path={path} />
       </div>
       {sidebar.isSentBoxOpen ? <SentEmail /> : null}
     </div>
