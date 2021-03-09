@@ -5,10 +5,10 @@ import {
   PROMOTION__SELECTED,
   DELETE__EMAIL,
   SET__ID,
-} from "../constants/emailConstants";
+} from "../Constants/emailConstants";
 
 const iState = {
-  EmailRowID:null,
+  EmailRowID: null,
   allEmails: [],
   inboxEmails: [],
   draftEmails: [],
@@ -34,11 +34,11 @@ const emailReducer = (state = iState, { type, payload }) => {
       });
       return { ...state, sentEmailData: updateSentEmails };
     }
-      
-      case SET__ID:
+
+    case SET__ID:
       return {
         ...state,
-       EmailRowID:payload
+        EmailRowID: payload,
       };
     case PRIMARY__SELECTED:
       return {

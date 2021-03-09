@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
+import { createAnAccount } from "../actions/otherActions";
 
 function CreateAnAccount() {
   const history = useHistory();
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -23,15 +28,9 @@ function CreateAnAccount() {
   };
 
   const onSubmitHandler = () => {
-    alert("data submit successfully");
-    setFormData({
-      firstname: "",
-      lastname: "",
-      email: "",
-      phone: "",
-      username: "",
-      password: "",
-    });
+    dispatch(createAnAccount(formData));
+    toast.success("data submit successfully");
+    history.push("/");
   };
 
   const { firstname, lastname, email, username, phone, password } = formData;

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import CloseIcon from "@material-ui/icons/Close";
 import { IconButton, TextareaAutosize } from "@material-ui/core";
-import { sentEmail } from "../../../actions/emailActions";
+import { sentEmail } from "../../actions/emailActions";
 import { useDispatch } from "react-redux";
-import { axiosInstance } from "../../../utility/https-client";
-import { hideSentBox } from "../../../actions/otherActions";
+import axiosInstance from "../../utility/axiosInstance";
+import { hideSentBox } from "../../actions/otherActions";
 import moment from "moment";
 
 function SentEmail() {

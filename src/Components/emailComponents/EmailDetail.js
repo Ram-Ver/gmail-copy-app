@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { axiosInstance } from "../../utility/https-client";
+import axiosInstance from "../../utility/axiosInstance";
 
 function EmailDetail() {
   const [emailDetail, setEmailDetail] = useState();

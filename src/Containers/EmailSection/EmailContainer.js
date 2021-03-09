@@ -11,7 +11,7 @@ import PeopleIcon from "@material-ui/icons/People";
 import LocalOfferIcon from "@material-ui/icons/LocalOffer";
 import InboxOutlined from "@material-ui/icons/InboxOutlined";
 import { useDispatch } from "react-redux";
-import { axiosInstance } from "../../utility/https-client";
+import axiosInstance from "../../utility/axiosInstance";
 import { deleteEmail } from "../../actions/emailActions";
 import { toast } from "react-toastify";
 import Loader from "react-loader-spinner";
@@ -103,7 +103,7 @@ function EmailContainer(props) {
             <Route
               exact
               path={`${props.path}/inbox`}
-              component={() => <Inbox data={data}     />}
+              component={() => <Inbox data={data} />}
             />
             <Route exact path={`${path}/stared`} component={() => <Stared />} />
             <Route exact path={`${path}/sent`} component={() => <Sent />} />
@@ -129,7 +129,6 @@ function EmailContainer(props) {
               path={`${path}/detail`}
               component={() => <EmailDetail />}
             />
-
           </Switch>
         </div>
       </div>

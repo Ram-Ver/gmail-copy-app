@@ -1,30 +1,46 @@
 {
-  "inbox": [],
-  "sent": [],
-  "stared": [],
-  "draft": [],
-  "snoozed": [],
-  "emails": [
+  "users": [
     {
-      "title": "ram",
-      "subject": "verma",
-      "description": "verma",
-      "time": "24 minutes ago",
+      "firstname": "vinod",
+      "lastname": "verma",
+      "email": "vinod@gmail.com",
+      "phone": "77777777",
+      "username": "vinod",
+      "password": "123",
       "id": 1
     },
     {
-      "title": "vinod",
-      "subject": "123",
-      "description": "14552\n",
-      "time": "40 minutes ago",
+      "firstname": "ram",
+      "lastname": "verma",
+      "email": "ramv@gmail.com",
+      "phone": "7986355675",
+      "username": "ram@gmail.com",
+      "password": "123",
       "id": 2
     },
     {
-      "title": "vinod",
-      "subject": "verma kutta",
-      "description": "hai",
-      "time": "9 minutes ago",
+      "firstname": "ram",
+      "lastname": "verma",
+      "email": "ram@gmail.com",
+      "phone": "7986355675",
+      "username": "ram",
+      "password": "123",
       "id": 3
+    },
+    {
+      "firstname": "tirlock",
+      "lastname": "chand",
+      "email": "tirlock@gmail.com",
+      "phone": "123456789",
+      "username": "tirlock",
+      "password": "123456",
+      "id": 4
+    }
+  ],
+  "emails": [
+    {
+      "title": "hiii",
+      "id": 1
     }
   ]
 }

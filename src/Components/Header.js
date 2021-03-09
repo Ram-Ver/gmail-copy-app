@@ -5,34 +5,30 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import SettingsIcon from "@material-ui/icons/Settings";
 import AppsIcon from "@material-ui/icons/Apps";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../actions/userAction";
 import { useHistory } from "react-router-dom";
 
-
 function Header({ sidebarToggleHandler }) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const history = useHistory()
+  const [isOpenCart, setIsOpenCart] = React.useState(false);
+  const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  useEffect(() => {
-  }, [user]);
+  useEffect(() => {}, [user]);
 
+  const menuRef = useRef();
   const logoutHandler = () => {
     dispatch(login(false));
-    history.push("/")
-    setAnchorEl(null);
-
+    history.push("/");
   };
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleClick = () => {
+    setIsOpenCart(!isOpenCart);
   };
 
   const handleClose = () => {
-    setAnchorEl(null);
-    
+    setIsOpenCart(!isOpenCart);
   };
 
   return (
@@ -55,6 +51,7 @@ function Header({ sidebarToggleHandler }) {
       </div>
       <div className="header__right">
         <IconButton
+          ref={menuRef}
           aria-controls="simple-menu"
           aria-haspopup="true"
           onClick={handleClick}>
@@ -63,9 +60,9 @@ function Header({ sidebarToggleHandler }) {
 
         <Menu
           id="simple-menu"
-          anchorEl={anchorEl}
+          anchorEl={menuRef.current}
           keepMounted
-          open={Boolean(anchorEl)}
+          open={isOpenCart}
           onClose={handleClose}>
           <MenuItem onClick={handleClose}>Help</MenuItem>
           <MenuItem onClick={handleClose}>My account</MenuItem>

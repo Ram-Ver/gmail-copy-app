@@ -1,12 +1,11 @@
-import PrivateRoute from "./Routes/PrivateRoute";
-import PrivateLayout from "./Containers/PrivateLayout";
-import PublicLayout from "./Containers/PublicLayout";
-import PublicRoute from "./Routes/PublicRoute";
+import PrivateLayout from "./Containers/PrivateLayout.js";
+import PublicLayout from "./Containers/PublicLayout.js";
 import CreateAnAccount from "./Containers/createAnAccount";
 import { ToastContainer, Flip } from "react-toastify";
 import { Route, Switch } from "react-router-dom";
 import { NotFound } from "./Containers/pages";
-
+import PrivateRoute from "./Components/Routes/PrivateRoute";
+import PublicRoute from "./Components/Routes/PublicRoute";
 
 function App() {
   const isAuthunticate = true;
@@ -24,11 +23,14 @@ function App() {
         hideProgressBar
       />
       <Switch>
+        {/* public route */}
         <PublicRoute exact path="/" component={() => <PublicLayout />} />
         <PublicRoute
           path="/create-an-account"
           component={() => <CreateAnAccount />}
         />
+
+        {/* Private Route */}
 
         <PrivateRoute
           isAuthunticate={isAuthunticate}
@@ -37,7 +39,7 @@ function App() {
           component={(props) => <PrivateLayout {...props} />}
         />
 
-        <Route component={NotFound}   />
+        <Route component={NotFound} />
       </Switch>
     </>
   );

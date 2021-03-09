@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "../../Components/Header";
-import Sidebar from "../../Components/Sidebar";
-import EmailContainer from "../EmailSection/EmailContainer";
+import Header from "../Components/Header";
+import Sidebar from "../Components/Sidebar";
+import EmailContainer from "./EmailSection/EmailContainer";
 import { useDispatch, useSelector } from "react-redux";
-import SentEmail from "../EmailSection/SentEmail/sentEmail";
-import { sidebartoggle } from "../../actions/otherActions";
+import SentEmail from "./EmailSection/sentEmail";
+import { sidebartoggle } from "../actions/otherActions";
 
 function PrivateLayout(props) {
   const path = "/admin";
