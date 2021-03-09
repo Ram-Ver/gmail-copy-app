@@ -22,7 +22,6 @@ function PublicLayout() {
   }, []);
 
   const loginHandler = (e) => {
-    // dispatch(login(userLoginDetail));
     e.preventDefault();
     const singleUser = users.find(
       (userdata) =>
