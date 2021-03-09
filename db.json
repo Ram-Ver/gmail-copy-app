@@ -8,6 +8,7 @@
       "username": "vinod",
       "password": "123",
       "id": 1
+<<<<<<< HEAD
     },
     {
       "firstname": "ram",
@@ -41,6 +42,8 @@
     {
       "title": "hiii",
       "id": 1
+=======
+>>>>>>> 04fb13e4eafe3248fb386e63cc558c1661e82897
     }
   ]
 }
