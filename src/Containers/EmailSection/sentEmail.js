@@ -1,30 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CloseIcon from "@material-ui/icons/Close";
 import { IconButton, TextareaAutosize } from "@material-ui/core";
-import { sentEmail } from "../../actions/emailActions";
+import { fetchEmails, sentEmail } from "../../actions/emailActions";
 import { useDispatch } from "react-redux";
-import axiosInstance from "../../utility/axiosInstance";
 import { hideSentBox } from "../../actions/otherActions";
 import moment from "moment";
+import { toast } from "react-toastify";
 
 function SentEmail() {
   const [sentData, setSentData] = useState({
     title: "",
     subject: "",
     description: "",
+    label: "sent",
   });
 
   const dispatch = useDispatch();
+  useEffect(() => {
+    return () => {
+      dispatch(fetchEmails());
+    };
+  }, []);
   const sentEmailHandler = () => {
-    dispatch(sentEmail(sentData));
-    setSentData({
-      title: "",
-      subject: "",
-      description: "",
-    });
-    dispatch(hideSentBox(false));
-    const time = moment().startOf("hour").fromNow();
-    axiosInstance.post("/emails", { title, subject, description, time });
+    if (sentData.title === "") {
+      toast.error("title not allowed to be empty");
+    } else if (sentData.subject === "") {
+      toast.error("subject not allowed to be empty");
+    } else if (sentData.description === "") {
+      toast.error("description not allowed to be empty");
+    } else {
+      dispatch(sentEmail(sentData));
+      dispatch(hideSentBox());
+    }
   };
 
   const onChangeHandler = (e) => {
@@ -35,7 +42,7 @@ function SentEmail() {
   };
 
   const sentBoxHandler = () => {
-    dispatch(hideSentBox(false));
+    dispatch(hideSentBox());
   };
 
   const { title, subject, description } = sentData;

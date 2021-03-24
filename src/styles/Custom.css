@@ -155,6 +155,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  height: 100vh;
 }
 .header {
   display: flex;
@@ -221,7 +222,6 @@
 .sidebar {
   flex: 0.2;
   max-width: 350px;
-  height: 100vh;
 }
 
 .sidebar__option {
@@ -289,8 +289,9 @@
 
 .email__list {
   background-color: var(--whitesmoke);
-  height: 100vh;
+  max-height: 80vh;
   padding: 20px;
+  overflow: scroll;
 }
 
 .email__list__header {
@@ -306,37 +307,69 @@
   font-weight: 400;
   padding-left: 10px;
 }
+.email__list__header_option > h3 > span {
+  padding-left: 10px;
+}
 .email__list__header:hover {
   box-shadow: 4px 7px 4px -4px rgba(0, 0, 0, 0.24);
 }
 
 .email__row__container {
   background-color: var(--white);
-  height: 100vh;
   box-shadow: 0px 7px 5px 4px rgba(0, 0, 0, 0.24);
 }
 
 .email__row {
-  height: 50px;
+  height: 45px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
+  padding: 10px 15px;
 }
 
 .email__row__left__section {
   display: flex;
+  min-width: 20%;
   align-items: center;
 }
-
 .email__row__left__section > h3 {
   font-size: 15px;
-  text-transform: capitalize;
-  font-weight: bold;
+  font-weight: 600;
   margin-left: 20px;
+  margin-right: 100px;
+  white-space: nowrap;
+  width: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .email__row__left__section > .MuiSvgIcon-root {
   color: var(--gray);
+}
+.email__row__middle__section {
+  width: 70%;
+  display: flex;
+  align-items: center;
+}
+
+.email__row__middle__section > h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-right: 5px;
+}
+.email__row__middle__section > p {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--gray);
+  white-space: nowrap;
+  width: 700px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.email__row__right__section {
+  width: 10%;
+}
+.email__row__right__section > span {
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .email__row:hover {

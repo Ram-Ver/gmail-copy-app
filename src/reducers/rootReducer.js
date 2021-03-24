@@ -5,7 +5,7 @@ import sidebarReducer from "./sidebarReducer";
 import accountReducer from "./accountReducer";
 const rootReducer = combineReducers({
   user: userReducer,
-  email: emailReducer,
+  emails: emailReducer,
   sidebar: sidebarReducer,
   createAnAccount: accountReducer,
 });

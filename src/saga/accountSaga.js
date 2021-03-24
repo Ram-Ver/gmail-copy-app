@@ -27,7 +27,7 @@ function* createAnAccountHandler({ payload }) {
       status: "failure",
     });
   } else {
-    console.log(result.data, "result in else");
+    console.log(result, "result in else");
     yield put({
       type: CREATE__AN__ACCOUNT__SUCCESS,
       payload: result.data,

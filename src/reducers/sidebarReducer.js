@@ -14,9 +14,9 @@ const sidebarReducer = (state = iState, { type, payload }) => {
     case SIDEBAR__TOGGLE:
       return { ...state, isSidebarOpen: payload };
     case SHOW__SENTBOX:
-      return { ...state, isSentBoxOpen: payload };
+      return { ...state, isSentBoxOpen: true };
     case HIDE__SENTBOX:
-      return { ...state, isSentBoxOpen: payload };
+      return { ...state, isSentBoxOpen: false };
     default:
       return state;
   }

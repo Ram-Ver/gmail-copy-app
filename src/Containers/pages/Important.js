@@ -1,7 +1,7 @@
 import React from "react";
 import EmailRow from "../../Components/emailComponents/EmailRow";
 
-function Primary({ data }) {
+function Important({ data }) {
   return (
     <div>
       {data.map((item) => (
@@ -19,4 +19,4 @@ function Primary({ data }) {
   );
 }
 
-export default Primary;
+export default Important;

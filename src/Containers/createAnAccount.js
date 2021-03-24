@@ -80,6 +80,8 @@ function CreateAnAccount() {
           value={password}
           name="password"
         />
+
+        <input type="file" accept="image/*" />
         <button onClick={onSubmitHandler}>Submit</button>
         <button onClick={backButtonHandler}>Go Back</button>
       </div>

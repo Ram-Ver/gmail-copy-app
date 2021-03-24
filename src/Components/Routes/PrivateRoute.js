@@ -7,7 +7,6 @@ const PrivateRoute = ({
   isAuthunticate,
   ...rest
 }) => {
-  const user = useSelector((state) => state.user);
   return (
     <>
       <Route

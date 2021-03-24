@@ -29,6 +29,7 @@ function PublicLayout() {
     );
     console.log(singleUser, "single user");
     if (username == singleUser?.email && password === singleUser?.password) {
+      localStorage.setItem("login", "true");
       history.push("/admin/inbox");
     } else if (username === "" || password === "") {
       toast.error("email/phone or password  not allowed to be empty");

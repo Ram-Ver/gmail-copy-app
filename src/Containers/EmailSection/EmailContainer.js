@@ -1,5 +1,11 @@
-import { Checkbox, IconButton } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import {
+  Checkbox,
+  IconButton,
+  Button,
+  Menu,
+  MenuItem,
+} from "@material-ui/core";
+import React, { useEffect, useRef, useState } from "react";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import RefreshIcon from "@material-ui/icons/Refresh";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
@@ -10,9 +16,9 @@ import EmailHeaderOptions from "../../Components/emailComponents/EmailHeaderOpti
 import PeopleIcon from "@material-ui/icons/People";
 import LocalOfferIcon from "@material-ui/icons/LocalOffer";
 import InboxOutlined from "@material-ui/icons/InboxOutlined";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axiosInstance from "../../utility/axiosInstance";
-import { deleteEmail } from "../../actions/emailActions";
+import { deleteEmail, fetchEmails } from "../../actions/emailActions";
 import { toast } from "react-toastify";
 import Loader from "react-loader-spinner";
 import { DeleteForeverOutlined, StarBorder } from "@material-ui/icons";
@@ -27,17 +33,22 @@ import {
   Primary,
   Promotion,
   Social,
-  NotFound,
+  Important,
+  Chat,
+  Sheduled,
+  AllMails,
+  Spam,
 } from "../pages";
 import EmailDetail from "../../Components/emailComponents/EmailDetail";
 
 function EmailContainer(props) {
-  const [data, setData] = useState(undefined);
-
+  const [isOpenCart, setIsOpenCart] = React.useState(false);
+  const dropdownRef = useRef(null);
+  const emails = useSelector((state) => state.emails);
   const path = props.path;
   const dispatch = useDispatch();
   useEffect(() => {
-    axiosInstance.get("/emails").then((response) => setData(response.data));
+    dispatch(fetchEmails());
   }, []);
 
   const deleteEmailHandler = (id) => {
@@ -47,14 +58,55 @@ function EmailContainer(props) {
     toast.success("Deleted Successfully");
   };
 
+  const {
+    allEmails,
+    inbox,
+    sent,
+    stared,
+    snoozed,
+    draft,
+    sheduled,
+    important,
+    spam,
+    promotion,
+    primary,
+    social,
+  } = emails;
+
+  const handleClick = () => {
+    setIsOpenCart(!isOpenCart);
+  };
+  const handleClose = () => {
+    setIsOpenCart(!isOpenCart);
+  };
   return (
     <div className="email__Container">
       <div className="email__tools__header">
         <div className="email__tools__left">
-          <Checkbox />
-          <IconButton>
-            <ArrowDropDownIcon />
-          </IconButton>
+          <Button>
+            <Checkbox />
+            <ArrowDropDownIcon
+              ref={dropdownRef}
+              aria-controls="dropdown-menu"
+              aria-haspopup="true"
+              onClick={handleClick}
+            />
+          </Button>
+          <Menu
+            id="dropdown-menu"
+            anchorEl={dropdownRef.current}
+            keepMounted
+            open={isOpenCart}
+            onClose={handleClose}>
+            <MenuItem>All</MenuItem>
+            <MenuItem>None</MenuItem>
+            <MenuItem>Read</MenuItem>
+            <MenuItem>Unread</MenuItem>
+            <MenuItem>Stared</MenuItem>
+            <MenuItem>Unstared</MenuItem>
+          </Menu>
+          {/* <IconButton>
+          </IconButton> */}
           <IconButton>
             <RefreshIcon />
           </IconButton>
@@ -77,6 +129,7 @@ function EmailContainer(props) {
       <div className="email__header__options">
         <EmailHeaderOptions
           Icon={InboxOutlined}
+          number={primary.length}
           title="Primary"
           color="red"
           selected={false}
@@ -84,6 +137,7 @@ function EmailContainer(props) {
         />
         <EmailHeaderOptions
           Icon={PeopleIcon}
+          number={social.length}
           title="Social"
           color="blue"
           selected={false}
@@ -91,6 +145,7 @@ function EmailContainer(props) {
         />
         <EmailHeaderOptions
           Icon={LocalOfferIcon}
+          number={promotion.length}
           title="Promotions"
           color="green"
           selected={false}
@@ -103,27 +158,69 @@ function EmailContainer(props) {
             <Route
               exact
               path={`${props.path}/inbox`}
-              component={() => <Inbox data={data} />}
+              component={() => <Inbox data={inbox} />}
             />
-            <Route exact path={`${path}/stared`} component={() => <Stared />} />
-            <Route exact path={`${path}/sent`} component={() => <Sent />} />
+            <Route
+              exact
+              path={`${path}/stared`}
+              component={() => <Stared data={stared} />}
+            />
+            <Route
+              exact
+              path={`${path}/sent`}
+              component={() => <Sent data={sent} />}
+            />
             <Route
               exact
               path={`${path}/snoozed`}
-              component={() => <Snoozed />}
+              component={() => <Snoozed data={snoozed} />}
             />
-            <Route exact path={`${path}/draft`} component={() => <Draft />} />
+            <Route
+              exact
+              path={`${path}/draft`}
+              component={() => <Draft data={draft} />}
+            />
+            <Route
+              exact
+              path={`${path}/important`}
+              component={() => <Important data={important} />}
+            />
+
+            <Route exact path={`${path}/chat`} component={() => <Chat />} />
+
+            <Route
+              exact
+              path={`${path}/sheduled`}
+              component={() => <Sheduled data={sheduled} />}
+            />
+
+            <Route
+              exact
+              path={`${path}/allmails`}
+              component={() => <AllMails data={allEmails} />}
+            />
+
+            <Route
+              exact
+              path={`${path}/spam`}
+              component={() => <Spam data={spam} />}
+            />
+
             <Route
               exact
               path={`${path}/promotion`}
-              component={() => <Promotion />}
+              component={() => <Promotion data={promotion} />}
             />
             <Route
               exact
               path={`${path}/primary`}
-              component={() => <Primary />}
+              component={() => <Primary data={primary} />}
             />
-            <Route exact path={`${path}/social`} component={() => <Social />} />
+            <Route
+              exact
+              path={`${path}/social`}
+              component={() => <Social data={social} />}
+            />
             <Route
               exact
               path={`${path}/detail`}

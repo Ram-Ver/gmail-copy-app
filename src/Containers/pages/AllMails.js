@@ -1,12 +1,13 @@
 import React from "react";
 import EmailRow from "../../Components/emailComponents/EmailRow";
 
-function Primary({ data }) {
+function AllMails({ data }) {
   return (
     <div>
       {data.map((item) => (
         <EmailRow
           key={item.id}
+          label={item.label}
           id={item.id}
           title={item.title}
           subject={item.subject}
@@ -19,4 +20,4 @@ function Primary({ data }) {
   );
 }
 
-export default Primary;
+export default AllMails;

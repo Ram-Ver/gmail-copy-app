@@ -1,5 +1,5 @@
 import { Button } from "@material-ui/core";
-import { InboxOutlined } from "@material-ui/icons";
+import { Chat, InboxOutlined } from "@material-ui/icons";
 import AddIcon from "@material-ui/icons/Add";
 import React, { useEffect } from "react";
 import SidebarOptions from "./SidebarOptions";
@@ -19,7 +19,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import ReportIcon from "@material-ui/icons/Report";
 
 function Sidebar({ path }) {
-  const allEmails = useSelector((state) => state.email);
+  const emails = useSelector((state) => state.emails);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -30,6 +30,21 @@ function Sidebar({ path }) {
   const sentComponentSelectHandler = (componentPath) => {
     history.push(componentPath);
   };
+
+  const {
+    allEmails,
+    inbox,
+    sent,
+    stared,
+    snoozed,
+    draft,
+    sheduled,
+    important,
+    spam,
+    promotion,
+    primary,
+    social,
+  } = emails;
   return (
     <div className="sidebar">
       <Button onClick={composeHandler}>
@@ -40,7 +55,7 @@ function Sidebar({ path }) {
         <SidebarOptions
           Icon={InboxOutlined}
           title={"inbox"}
-          number={1}
+          number={inbox.length}
           color={"red"}
           selected={true}
           path={`${path}/inbox`}
@@ -48,7 +63,7 @@ function Sidebar({ path }) {
         <SidebarOptions
           Icon={StarBorderIcon}
           title={"Stared"}
-          number={3}
+          number={stared.length}
           color={"red"}
           selected={true}
           path={`${path}/stared`}
@@ -56,7 +71,7 @@ function Sidebar({ path }) {
         <SidebarOptions
           Icon={SnoozeIcon}
           title={"Snoozed"}
-          number={55}
+          number={snoozed.length}
           color={"red"}
           selected={true}
           path={`${path}/snoozed`}
@@ -64,7 +79,7 @@ function Sidebar({ path }) {
         <SidebarOptions
           Icon={SendIcon}
           title={"Sent"}
-          number={allEmails.sentEmailData.length}
+          number={sent.length}
           color={"red"}
           selected={true}
           path={`${path}/sent`}
@@ -72,7 +87,7 @@ function Sidebar({ path }) {
         <SidebarOptions
           Icon={DraftsIcon}
           title={"Draft"}
-          number={11}
+          number={draft.length}
           color={"red"}
           selected={true}
           path={`${path}/draft`}
@@ -80,37 +95,42 @@ function Sidebar({ path }) {
         <SidebarOptions
           Icon={LabelImportantIcon}
           title={"Important"}
-          number={10}
+          number={important.length}
           color={"red"}
           selected={true}
+          path={`${path}/important`}
         />
         <SidebarOptions
           Icon={ChatIcon}
           title={"Chat"}
-          number={10}
+          number={0}
           color={"red"}
           selected={true}
+          path={`${path}/chat`}
         />
         <SidebarOptions
           Icon={ScheduleIcon}
           title={"Schedulded"}
-          number={10}
+          number={sheduled.length}
           color={"red"}
           selected={true}
+          path={`${path}/sheduled`}
         />
         <SidebarOptions
           Icon={MailIcon}
           title={"All Mails"}
-          number={10}
+          number={allEmails.length}
           color={"red"}
           selected={true}
+          path={`${path}/allmails`}
         />
         <SidebarOptions
           Icon={ReportIcon}
           title={"Spam"}
-          number={10}
+          number={spam.length}
           color={"red"}
           selected={true}
+          path={`${path}/spam`}
         />
       </div>
       <div className="sidebar__Meet">

@@ -8,7 +8,7 @@ import PrivateRoute from "./Components/Routes/PrivateRoute";
 import PublicRoute from "./Components/Routes/PublicRoute";
 
 function App() {
-  const isAuthunticate = true;
+  const isAuthunticate = localStorage.getItem("login");
   return (
     <>
       <ToastContainer
