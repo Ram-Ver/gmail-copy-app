@@ -10,11 +10,7 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use(
-  (config) => {
-    console.log(config, "in intercepter");
-
-    return config;
-  },
+  (config) => config,
   (error) => new Promise.reject(error)
 );
 

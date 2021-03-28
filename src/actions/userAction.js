@@ -8,7 +8,6 @@ import {
   USER__LOGIN,
   USER__LOGOUT,
   USER__PROFILE__UPDATE,
-  GET__USERS,
   USER__LOGIN__REQUESTED,
 } from "../Constants/userConstants";
 
@@ -16,7 +15,6 @@ const login = createAction(USER__LOGIN);
 const userLoginRequested = createAction(USER__LOGIN__REQUESTED);
 const logout = createAction(USER__LOGOUT);
 const userProfileUpdate = createAction(USER__PROFILE__UPDATE);
-const getUsers = createAction(GET__USERS);
 
 const fetchUsers = createAction(FETCH__USERS);
 const fetchUserRequested = createAction(FETCH__USERS__REQUESTED);
@@ -32,7 +30,6 @@ export {
   login,
   logout,
   userProfileUpdate,
-  getUsers,
   userLoginRequested,
   setUsers,
 };

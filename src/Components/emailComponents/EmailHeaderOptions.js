@@ -16,7 +16,7 @@ function EmailHeaderOptions({ Icon, title, color, selected, path, number }) {
         <Icon />
         <h3>
           {title}
-          <span>{number}</span>
+          {/* <span>{number}</span> */}
         </h3>
       </div>
     </div>

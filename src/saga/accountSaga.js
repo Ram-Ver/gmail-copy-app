@@ -8,7 +8,6 @@ import {
 import httpClient from "../utility/http-client";
 
 function* createAnAccountHandler({ payload }) {
-  console.log(payload);
   yield put({
     type: CREATE__AN__ACCOUNT__REQUESTED,
     payload: "",

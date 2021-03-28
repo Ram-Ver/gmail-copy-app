@@ -289,7 +289,8 @@
 
 .email__list {
   background-color: var(--whitesmoke);
-  max-height: 80vh;
+  min-height: 70vh;
+  max-height: 75vh;
   padding: 20px;
   overflow: scroll;
 }
@@ -337,7 +338,7 @@
   margin-left: 20px;
   margin-right: 100px;
   white-space: nowrap;
-  width: 15px;
+  width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -443,6 +444,12 @@
 
 .email__detail {
   display: flax;
-  background-color: var(--whitesmoke);
+  background-color: var(--white);
   height: 100%;
+}
+
+.pagination__count {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--gray);
 }

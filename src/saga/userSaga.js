@@ -4,13 +4,7 @@ import {
   FETCH__USERS__REQUESTED,
   FETCH__USERS__FAILURE,
   FETCH__USERS__SUCCESS,
-  GET__USERS,
-  // USER__LOGIN,
-  // USER__LOGIN__FAILURE,
-  // USER__LOGIN__REQUESTED,
-  // USER__LOGIN__SUCCESS,
 } from "../Constants/userConstants";
-import axiosInstance from "../utility/axiosInstance";
 import httpClient from "../utility/http-client";
 
 function* fetchUsersHandler(payload) {
@@ -41,17 +35,8 @@ function* fetchUsersHandler(payload) {
   }
 }
 
-function* getUsersHandler(action) {
-  // console.log(action, "user saga 9");
-  // yield
-}
-
 function* user() {
-  yield all([
-    takeLatest(FETCH__USERS, fetchUsersHandler),
-    // takeLatest(USER__LOGIN, loginHandler),
-    takeLatest(GET__USERS, getUsersHandler),
-  ]);
+  yield all([takeLatest(FETCH__USERS, fetchUsersHandler)]);
 }
 
 export default user;

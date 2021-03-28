@@ -1,458 +1,148 @@
 {
   "users": [
     {
-      "firstname": "vinod",
-      "lastname": "verma",
-      "email": "vinod@gmail.com",
-      "phone": "77777777",
-      "username": "vinod",
-      "password": "123",
-      "id": 1
-    },
-    {
       "firstname": "ram",
       "lastname": "verma",
-      "email": "ramv@gmail.com",
+      "email": "ram@gmail.com",
       "phone": "7986355675",
       "username": "ram@gmail.com",
       "password": "123",
       "id": 2
-    },
-    {
-      "firstname": "ram",
-      "lastname": "verma",
-      "email": "ram@gmail.com",
-      "phone": "7986355675",
-      "username": "ram",
-      "password": "123",
-      "id": 3
-    },
-    {
-      "firstname": "tirlock",
-      "lastname": "chand",
-      "email": "tirlock@gmail.com",
-      "phone": "123456789",
-      "username": "tirlock",
-      "password": "123456",
-      "id": 4
-    },
-    {
-      "firstname": "tari",
-      "lastname": "verma",
-      "email": "tari@gmail.com",
-      "phone": "7842464",
-      "username": "tari",
-      "password": "123",
-      "id": 5
-    },
-    {
-      "firstname": "ram",
-      "lastname": "fgfg",
-      "email": "ram@gmail.com",
-      "phone": "rrrrrr",
-      "username": "ram",
-      "password": "123",
-      "id": 6
     }
   ],
   "emails": [
     {
       "label": "inbox",
-      "title": "a",
-      "subject": "j",
-      "description": "j",
+      "title": "title",
+      "subject": "this is a testing mail",
+      "description": "this is demo descripton",
       "id": 1
     },
     {
-      "label": "inbox",
-      "title": "a",
-      "subject": "j",
-      "description": "j",
-      "id": 2
-    },
-    {
-      "label": "inbox",
-      "title": "a",
-      "subject": "j",
-      "description": "j",
-      "id": 3
-    },
-    {
-      "label": "inbox",
-      "title": "a",
-      "subject": "j",
-      "description": "j",
-      "id": 4
-    },
-    {
-      "label": "inbox",
-      "title": "a",
-      "subject": "j",
-      "description": "j",
-      "id": 5
-    },
-    {
-      "label": "inbox",
-      "title": "ram",
-      "subject": "ram",
-      "description": "description\n",
-      "id": 6
-    },
-    {
-      "label": "inbox",
-      "title": "sds",
-      "subject": "kjbjh",
-      "description": "jhbjh",
-      "id": 7
-    },
-    {
-      "label": "inbox",
-      "title": "ram",
-      "subject": "kjgjhg",
-      "description": "jhjg",
-      "id": 8
-    },
-    {
-      "label": "inbox",
-      "title": "mdnbcdhnv",
-      "subject": "jhjv",
-      "description": "jhjhv",
-      "id": 9
-    },
-    {
-      "label": "inbox",
-      "title": "d,vmnmb",
-      "subject": "kjbkjhb",
-      "description": "hjgjhg\n",
-      "id": 10
-    },
-    {
-      "label": "inbox",
-      "title": "sds",
-      "subject": "kjghjgjh",
-      "description": "jhgjhg",
-      "id": 11
-    },
-    {
-      "label": "inbox",
-      "title": "dfdf",
-      "subject": "kjhkjh",
-      "description": "jkjh",
-      "id": 12
-    },
-    {
-      "title": "ddf",
-      "subject": "kjbjb",
-      "description": "jhjhg",
       "label": "sent",
+      "title": "Demo",
+      "subject": "Demo subject",
+      "description": "Demo description",
       "id": 13
     },
     {
-      "title": "kjhjhg",
-      "subject": "jbvjbv",
-      "description": "jhgjh",
-      "label": "sent",
-      "id": 14
-    },
-    {
-      "title": "jhvbnv",
-      "subject": "jhvjhv",
-      "description": "jhvjhv",
-      "label": "sent",
-      "id": 15
-    },
-    {
       "label": "stared",
-      "title": "kjhjhg",
-      "subject": "jbvjbv",
-      "description": "jhgjh",
-      "id": 16
-    },
-    {
-      "label": "stared",
-      "title": "jhvbnv",
-      "subject": "jhvjhv",
-      "description": "jhvjhv",
+      "title": "stared",
+      "subject": "this is stered mail",
+      "description": "description",
       "id": 17
     },
     {
       "label": "snoozed",
-      "title": "kjhjhg",
-      "subject": "jbvjbv",
-      "description": "jhgjh",
+      "title": "snoozed",
+      "subject": "this is snoozed mail",
+      "description": "description",
       "id": 18
     },
     {
       "label": "snoozed",
-      "title": "jhvbnv",
-      "subject": "jhvjhv",
-      "description": "jhvjhv",
+      "title": "snoozed",
+      "subject": "this is snoozed mail",
+      "description": "description",
       "id": 19
     },
     {
-      "title": "mhbjhb",
-      "subject": "jhjhv",
-      "description": "jhvjhv",
-      "label": "sent",
-      "id": 20
-    },
-    {
-      "title": "kjhjhg",
-      "subject": "jbvjbv",
-      "description": "jhgjh",
       "label": "draft",
+      "title": "draft",
+      "subject": "sunbject",
+      "description": "description",
       "id": 21
     },
     {
-      "title": "jhvbnv",
-      "subject": "jhvjhv",
-      "description": "jhvjhv",
       "label": "draft",
+      "title": "draft",
+      "subject": "draft mail",
+      "description": "description",
       "id": 22
     },
     {
-      "title": "mhbjhb",
-      "subject": "jhjhv",
-      "description": "jhvjhv",
       "label": "important",
+      "title": "important mail",
+      "subject": "Subject",
+      "description": "descrfiption",
       "id": 23
     },
     {
-      "title": "kjhjhg",
-      "subject": "jbvjbv",
-      "description": "jhgjh",
       "label": "important",
+      "title": "important mail",
+      "subject": "this is important mail",
+      "description": "description",
       "id": 24
     },
     {
-      "title": "jhvbnv",
-      "subject": "jhvjhv",
-      "description": "jhvjhv",
       "label": "sheduled",
-      "id": 25
-    },
-    {
-      "title": "mhbjhb",
-      "subject": "jhjhv",
-      "description": "jhvjhv",
-      "label": "sheduled",
-      "id": 26
-    },
-    {
-      "title": "kjhjhg",
-      "subject": "jbvjbv",
-      "description": "jhgjh",
-      "label": "sheduled",
+      "title": "sheduled",
+      "subject": "sheduled mail",
+      "description": "description",
       "id": 27
     },
     {
-      "title": "mhbjhb",
-      "subject": "jhjhv",
-      "description": "jhvjhv",
       "label": "spam",
+      "title": "spam",
+      "subject": "spam mail",
+      "description": "description",
       "id": 28
     },
     {
-      "title": "kjhjhg",
-      "subject": "jbvjbv",
-      "description": "jhgjh",
       "label": "spam",
+      "title": "spam",
+      "subject": "this is spam mail",
+      "description": "description",
       "id": 29
     },
     {
-      "title": "mhbjhb",
-      "subject": "jhjhv",
-      "description": "jhvjhv",
       "label": "primary",
+      "title": "primary",
+      "subject": "demo mail",
+      "description": "description",
       "id": 30
     },
     {
-      "title": "kjhjhg",
-      "subject": "jbvjbv",
-      "description": "jhgjh",
       "label": "primary",
+      "title": "primary",
+      "subject": "this is demo sebject",
+      "description": "description",
       "id": 31
     },
     {
-      "title": "social",
-      "subject": "jhjhv",
-      "description": "jhvjhv",
       "label": "social",
+      "title": "social",
+      "subject": "social demo mail",
+      "description": "social demo description",
       "id": 32
     },
     {
-      "title": "social",
-      "subject": "jbvjbv",
-      "description": "jhgjh",
       "label": "social",
+      "title": "social",
+      "subject": "social subject",
+      "description": "social description",
       "id": 33
     },
     {
-      "title": "kjhjhg",
-      "subject": "jbvjbv",
-      "description": "jhgjh",
       "label": "promotion",
+      "title": "Demo",
+      "subject": "this is promotion mail",
+      "description": "this is demo",
       "id": 34
     },
     {
-      "title": "mhbjhb",
-      "subject": "jhjhv",
-      "description": "jhvjhv",
       "label": "promotion",
+      "title": "promotion",
+      "subject": "this is promotion mail",
+      "description": "this is description",
       "id": 35
     },
     {
-      "title": "vinod",
-      "subject": "verma",
+      "title": "sent",
+      "subject": "sent mail subject",
       "description": "description",
       "label": "sent",
       "id": 36
-    },
-    {
-      "title": "tfyf",
-      "subject": "gfvdfd",
-      "description": "hgbv",
-      "label": "sent",
-      "id": 37
-    },
-    {
-      "label": "inbox",
-      "title": "hiii",
-      "subject": "subject",
-      "description": "description",
-      "id": 38
-    },
-    {
-      "title": "hello",
-      "subject": "kjbsdcjb",
-      "description": "hbmnb",
-      "label": "sent",
-      "id": 39
-    },
-    {
-      "title": "title",
-      "subject": "subject this is a subject",
-      "description": "subjectrhgfhgfsjchgjhgscjhv bvjhjhdgcjhsgcjhsdgcjhsgdcjhschdjhcdjhdjdhjhdufjchdjjdchjdhcjdch",
-      "label": "sent",
-      "id": 40
-    },
-    {
-      "title": "title",
-      "subject": "this is s testing subject",
-      "description": "this is s testing description this is s testing descriptionthis is s testing descriptionthis is s testing descriptionthis is s testing descriptionthis is s testing descriptionthis is s testing descriptionthis is s testing descriptionthis is s testing descriptionthis is s testing descriptionthis is s testing descriptionthis is s testing descriptionthis is s testing descriptionthis is s testing descriptionthis is s testing descriptionthis is s testing descriptionthis is s testing descriptionthis is s testing description",
-      "label": "sent",
-      "id": 41
-    },
-    {
-      "title": "eeeeeeeeeeeeeeeeeeeeeeeeeeee",
-      "subject": "sssd",
-      "description": "khbhbhnbjhbjhvjhv",
-      "label": "sent",
-      "id": 42
-    },
-    {
-      "title": "bcbvcbvcbcbvc",
-      "subject": "jhvnbvgv",
-      "description": "jhbvbv",
-      "label": "sent",
-      "id": 43
-    },
-    {
-      "title": "jvhgvvvvvvvvvvvvvvvvvv",
-      "subject": "gvfdgvcgfvc",
-      "description": "vcvcgchcgfdc\n",
-      "label": "sent",
-      "id": 44
-    },
-    {
-      "title": "jbnghbjhgjhb",
-      "subject": "fdgfdfggfdfgd",
-      "description": "fdfdfdgfdgfdgfdfds",
-      "label": "sent",
-      "id": 45
-    },
-    {
-      "title": "sajbchb",
-      "subject": "hbhb",
-      "description": "hbjhb",
-      "label": "sent",
-      "id": 46
-    },
-    {
-      "title": "rrr",
-      "subject": "rrr",
-      "description": "ttt",
-      "label": "sent",
-      "id": 47
-    },
-    {
-      "title": "",
-      "subject": "",
-      "description": "",
-      "label": "sent",
-      "id": 48
-    },
-    {
-      "title": "ram",
-      "subject": "123",
-      "description": "123",
-      "label": "sent",
-      "id": 49
-    },
-    {
-      "title": "ww",
-      "subject": "ww",
-      "description": "ww",
-      "label": "sent",
-      "id": 50
-    },
-    {
-      "title": "ffg",
-      "subject": "",
-      "description": "",
-      "label": "sent",
-      "id": 51
-    },
-    {
-      "title": "nnn",
-      "subject": "",
-      "description": "",
-      "label": "sent",
-      "id": 52
-    },
-    {
-      "title": "xx",
-      "subject": "ss",
-      "description": "",
-      "label": "sent",
-      "id": 53
-    },
-    {
-      "title": "ee",
-      "subject": "scsc",
-      "description": "dsds",
-      "label": "sent",
-      "id": 54
-    },
-    {
-      "title": "sdsd",
-      "subject": "csd",
-      "description": "sd",
-      "label": "sent",
-      "id": 55
-    },
-    {
-      "id": 56
-    },
-    {
-      "id": 57
-    },
-    {
-      "title": "xvcv",
-      "subject": "kbhb",
-      "description": "jhv",
-      "label": "sent",
-      "id": 58
     }
   ]
 }

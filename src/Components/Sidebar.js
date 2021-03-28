@@ -58,7 +58,7 @@ function Sidebar({ path }) {
           number={inbox.length}
           color={"red"}
           selected={true}
-          path={`${path}/inbox`}
+          path={`/admin/inbox`}
         />
         <SidebarOptions
           Icon={StarBorderIcon}

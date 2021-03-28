@@ -5,11 +5,9 @@ import {
   SENT__EMAIL__REQUESTED,
   SENT__EMAIL__FAILURE,
   SENT__EMAIL__SUCCESS,
-  PRIMARY__SELECTED,
-  SOCIAL__SELECTED,
-  PROMOTION__SELECTED,
-  DELETE__EMAIL,
-  SET__ID,
+  GET__EMAIL__DETAIL__REQUESTED,
+  GET__EMAIL__DETAIL__FAILURE,
+  GET__EMAIL__DETAIL__SUCCESS,
 } from "../Constants/emailConstants.js";
 
 const iState = {
@@ -28,10 +26,8 @@ const iState = {
   promotion: [],
   primary: [],
   social: [],
-  primarySelected: false,
-  socialSelected: false,
-  promotionSelected: false,
-  deleteEmail: "",
+  mailDetail: null,
+  mailDetailStatus: "",
 };
 
 const emailReducer = (state = iState, { type, payload }) => {
@@ -79,41 +75,24 @@ const emailReducer = (state = iState, { type, payload }) => {
         ...state,
         sentEmailStatus: "success",
       };
-    case DELETE__EMAIL: {
-      console.log(payload, "reducer payload");
-      const updateSentEmails = state.sentEmailData.filter((email) => {
-        return email.id !== payload;
-      });
-      return { ...state, sentEmailData: updateSentEmails };
-    }
 
-    case SET__ID:
+    case GET__EMAIL__DETAIL__REQUESTED:
       return {
         ...state,
-        EmailRowID: payload,
+        mailDetailStatus: "requested",
       };
-    case PRIMARY__SELECTED:
+    case GET__EMAIL__DETAIL__FAILURE:
       return {
         ...state,
-        primarySelected: payload.primary,
-        socialSelected: payload.social,
-        promotionSelected: payload.promotion,
+        mailDetailStatus: "failure",
+      };
+    case GET__EMAIL__DETAIL__SUCCESS:
+      return {
+        ...state,
+        mailDetail: payload,
+        mailDetailStatus: "success",
       };
 
-    case SOCIAL__SELECTED:
-      return {
-        ...state,
-        primarySelected: payload.primary,
-        socialSelected: payload.social,
-        promotionSelected: payload.promotion,
-      };
-    case PROMOTION__SELECTED:
-      return {
-        ...state,
-        primarySelected: payload.primary,
-        socialSelected: payload.social,
-        promotionSelected: payload.promotion,
-      };
     default:
       return state;
   }

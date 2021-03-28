@@ -5,7 +5,7 @@ import {
   Menu,
   MenuItem,
 } from "@material-ui/core";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import RefreshIcon from "@material-ui/icons/Refresh";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
@@ -17,13 +17,7 @@ import PeopleIcon from "@material-ui/icons/People";
 import LocalOfferIcon from "@material-ui/icons/LocalOffer";
 import InboxOutlined from "@material-ui/icons/InboxOutlined";
 import { useDispatch, useSelector } from "react-redux";
-import axiosInstance from "../../utility/axiosInstance";
-import { deleteEmail, fetchEmails } from "../../actions/emailActions";
-import { toast } from "react-toastify";
-import Loader from "react-loader-spinner";
-import { DeleteForeverOutlined, StarBorder } from "@material-ui/icons";
-import { useHistory } from "react-router-dom";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import {
   Inbox,
   Sent,
@@ -40,6 +34,7 @@ import {
   Spam,
 } from "../pages";
 import EmailDetail from "../../Components/emailComponents/EmailDetail";
+import { fetchEmails } from "../../actions/emailActions";
 
 function EmailContainer(props) {
   const [isOpenCart, setIsOpenCart] = React.useState(false);
@@ -47,16 +42,10 @@ function EmailContainer(props) {
   const emails = useSelector((state) => state.emails);
   const path = props.path;
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchEmails());
   }, []);
-
-  const deleteEmailHandler = (id) => {
-    console.log(id, "id");
-    axiosInstance.delete(`/emails/${id}`);
-    dispatch(deleteEmail(id));
-    toast.success("Deleted Successfully");
-  };
 
   const {
     allEmails,
@@ -79,6 +68,7 @@ function EmailContainer(props) {
   const handleClose = () => {
     setIsOpenCart(!isOpenCart);
   };
+
   return (
     <div className="email__Container">
       <div className="email__tools__header">
@@ -105,8 +95,7 @@ function EmailContainer(props) {
             <MenuItem>Stared</MenuItem>
             <MenuItem>Unstared</MenuItem>
           </Menu>
-          {/* <IconButton>
-          </IconButton> */}
+
           <IconButton>
             <RefreshIcon />
           </IconButton>
@@ -118,6 +107,7 @@ function EmailContainer(props) {
           <IconButton>
             <ChevronLeftIcon />
           </IconButton>
+          <span className="pagination__count">1-{allEmails.length}</span>
           <IconButton>
             <ChevronRightIcon />
           </IconButton>
@@ -219,13 +209,9 @@ function EmailContainer(props) {
             <Route
               exact
               path={`${path}/social`}
-              component={() => <Social data={social} />}
+              component={(props) => <Social data={social} {...props} />}
             />
-            <Route
-              exact
-              path={`${path}/detail`}
-              component={() => <EmailDetail />}
-            />
+            <Route exact path={`${path}/detail/:id`} component={EmailDetail} />
           </Switch>
         </div>
       </div>

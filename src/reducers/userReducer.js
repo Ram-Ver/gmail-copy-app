@@ -5,7 +5,6 @@ import {
   SET__USERS,
   USER__LOGIN,
   USER__PROFILE__UPDATE,
-  GET__USERS,
   USER__LOGIN__REQUESTED,
   USER__LOGIN__FAILURE,
   USER__LOGIN__SUCCESS,
@@ -15,7 +14,6 @@ const iState = {
   fetchUserStatus: "",
   error: "",
   userloginStatus: "",
-  users: null,
   login: false,
   userProfile:
     "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
@@ -58,8 +56,6 @@ const userReducer = (state = iState, { type, payload }) => {
     case USER__PROFILE__UPDATE:
       return { ...state, userProfile: payload };
 
-    case GET__USERS:
-      return { ...state, users: payload };
     default:
       return state;
   }

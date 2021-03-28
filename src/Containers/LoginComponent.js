@@ -6,7 +6,7 @@ import gmailLogoImg from "../assets/images/Gmail-logo.png";
 import { fetchUsers, login } from "../actions/userAction";
 import { toast } from "react-toastify";
 
-function PublicLayout() {
+function LoginComponent() {
   const [userLoginDetail, setUserLoginDetail] = useState({
     username: "",
     password: "",
@@ -29,8 +29,8 @@ function PublicLayout() {
     );
     console.log(singleUser, "single user");
     if (username == singleUser?.email && password === singleUser?.password) {
-      localStorage.setItem("login", "true");
       history.push("/admin/inbox");
+      localStorage.setItem("login", "true");
     } else if (username === "" || password === "") {
       toast.error("email/phone or password  not allowed to be empty");
     } else {
@@ -79,4 +79,4 @@ function PublicLayout() {
   );
 }
 
-export default PublicLayout;
+export default LoginComponent;

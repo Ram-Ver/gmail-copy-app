@@ -11,7 +11,7 @@ import { login } from "../actions/userAction";
 import { useHistory } from "react-router-dom";
 
 function Header({ sidebarToggleHandler }) {
-  const [isOpenCart, setIsOpenCart] = React.useState(false);
+  const [isOpenMenu, setIsOpenMenu] = React.useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
@@ -20,15 +20,16 @@ function Header({ sidebarToggleHandler }) {
   const menuRef = useRef();
   const logoutHandler = () => {
     dispatch(login(false));
+    localStorage.removeItem("login");
     history.push("/");
   };
 
   const handleClick = () => {
-    setIsOpenCart(!isOpenCart);
+    setIsOpenMenu(!isOpenMenu);
   };
 
   const handleClose = () => {
-    setIsOpenCart(!isOpenCart);
+    setIsOpenMenu(!isOpenMenu);
   };
 
   return (
@@ -62,7 +63,7 @@ function Header({ sidebarToggleHandler }) {
           id="simple-menu"
           anchorEl={menuRef.current}
           keepMounted
-          open={isOpenCart}
+          open={isOpenMenu}
           onClose={handleClose}>
           <MenuItem onClick={handleClose}>Help</MenuItem>
           <MenuItem onClick={handleClose}>My account</MenuItem>
