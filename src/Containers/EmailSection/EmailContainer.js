@@ -1,11 +1,5 @@
-import {
-  Checkbox,
-  IconButton,
-  Button,
-  Menu,
-  MenuItem,
-} from "@material-ui/core";
-import React, { useEffect, useRef } from "react";
+import { Checkbox, IconButton, Button } from "@material-ui/core";
+import React, { useEffect } from "react";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import RefreshIcon from "@material-ui/icons/Refresh";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
@@ -37,25 +31,19 @@ import EmailDetail from "../../Components/emailComponents/EmailDetail";
 import { fetchEmails } from "../../actions/emailActions";
 
 function EmailContainer(props) {
-  const [isOpenCart, setIsOpenCart] = React.useState(false);
-  const dropdownRef = useRef(null);
   const emails = useSelector((state) => state.emails);
   const path = props.path;
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("email container mount");
     dispatch(fetchEmails());
   }, []);
 
-  const { allEmails, promotion, primary, social } = emails;
+  const refreshEmailHandler = () => {
+    dispatch(fetchEmails());
+  };
 
-  const handleClick = () => {
-    setIsOpenCart(!isOpenCart);
-  };
-  const handleClose = () => {
-    setIsOpenCart(!isOpenCart);
-  };
+  const { allEmails, promotion, primary, social } = emails;
 
   return (
     <div className="email__Container">
@@ -63,28 +51,10 @@ function EmailContainer(props) {
         <div className="email__tools__left">
           <Button>
             <Checkbox />
-            <ArrowDropDownIcon
-              ref={dropdownRef}
-              aria-controls="dropdown-menu"
-              aria-haspopup="true"
-              onClick={handleClick}
-            />
+            <ArrowDropDownIcon />
           </Button>
-          <Menu
-            id="dropdown-menu"
-            anchorEl={dropdownRef.current}
-            keepMounted
-            open={isOpenCart}
-            onClose={handleClose}>
-            <MenuItem>All</MenuItem>
-            <MenuItem>None</MenuItem>
-            <MenuItem>Read</MenuItem>
-            <MenuItem>Unread</MenuItem>
-            <MenuItem>Stared</MenuItem>
-            <MenuItem>Unstared</MenuItem>
-          </Menu>
 
-          <IconButton>
+          <IconButton onClick={refreshEmailHandler}>
             <RefreshIcon />
           </IconButton>
           <IconButton>
@@ -133,7 +103,7 @@ function EmailContainer(props) {
       <div className="email__list">
         <div className="email__row__container">
           <Switch>
-            <Route exact path={`${props.path}/inbox`} component={Inbox} />
+            <Route exact path={`${path}/inbox`} component={Inbox} />
             <Route exact path={`${path}/stared`} component={Stared} />
             <Route exact path={`${path}/sent`} component={Sent} />
             <Route exact path={`${path}/snoozed`} component={Snoozed} />

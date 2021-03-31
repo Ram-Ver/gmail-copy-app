@@ -3,18 +3,16 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import gmailLogoImg from "../assets/images/Gmail-logo.png";
-import { fetchUsers, login } from "../actions/userAction";
+import { fetchUsers } from "../actions/userAction";
 import { toast } from "react-toastify";
 
-function LoginComponent() {
+function Login() {
   const [userLoginDetail, setUserLoginDetail] = useState({
     username: "",
     password: "",
   });
-  const [singleUserDetail, setSingleUserDetail] = useState();
   const users = useSelector((state) => state.user.users);
   const dispatch = useDispatch();
-
   const history = useHistory();
 
   useEffect(() => {
@@ -27,8 +25,7 @@ function LoginComponent() {
       (userdata) =>
         userdata.email === username && userdata.password === password
     );
-    console.log(singleUser, "single user");
-    if (username == singleUser?.email && password === singleUser?.password) {
+    if (username === singleUser?.email && password === singleUser?.password) {
       history.push("/admin/inbox");
       localStorage.setItem("login", "true");
     } else if (username === "" || password === "") {
@@ -79,4 +76,4 @@ function LoginComponent() {
   );
 }
 
-export default LoginComponent;
+export default Login;
