@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import EmailRow from "../../Components/emailComponents/EmailRow";
 
-function Inbox({ data }) {
+function Inbox() {
+  const data = useSelector((state) => state.emails.sent);
+
+  useEffect(() => {
+    console.log("copmonent update");
+  });
+
   return (
     <div>
       {data.map((item) => (

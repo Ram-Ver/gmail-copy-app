@@ -15,7 +15,6 @@ function Header({ sidebarToggleHandler }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  useEffect(() => {}, [user]);
 
   const menuRef = useRef();
   const logoutHandler = () => {

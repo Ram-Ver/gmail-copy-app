@@ -8,6 +8,9 @@ import {
   GET__EMAIL__DETAIL__REQUESTED,
   GET__EMAIL__DETAIL__FAILURE,
   GET__EMAIL__DETAIL__SUCCESS,
+  DELETE__EMAIL__REQUESTED,
+  DELETE__EMAIL__FAILURE,
+  DELETE__EMAIL__SUCCESS,
 } from "../Constants/emailConstants.js";
 
 const iState = {
@@ -28,6 +31,8 @@ const iState = {
   social: [],
   mailDetail: null,
   mailDetailStatus: "",
+  deleteEmailStatus: "",
+  checkAllEmails: false,
 };
 
 const emailReducer = (state = iState, { type, payload }) => {
@@ -91,6 +96,22 @@ const emailReducer = (state = iState, { type, payload }) => {
         ...state,
         mailDetail: payload,
         mailDetailStatus: "success",
+      };
+
+    case DELETE__EMAIL__REQUESTED:
+      return {
+        ...state,
+        deleteEmailStatus: "requested",
+      };
+    case DELETE__EMAIL__FAILURE:
+      return {
+        ...state,
+        deleteEmailStatus: "failure",
+      };
+    case DELETE__EMAIL__SUCCESS:
+      return {
+        ...state,
+        deleteEmailStatus: "success",
       };
 
     default:

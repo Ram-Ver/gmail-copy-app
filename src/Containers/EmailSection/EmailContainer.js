@@ -44,23 +44,11 @@ function EmailContainer(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log("email container mount");
     dispatch(fetchEmails());
   }, []);
 
-  const {
-    allEmails,
-    inbox,
-    sent,
-    stared,
-    snoozed,
-    draft,
-    sheduled,
-    important,
-    spam,
-    promotion,
-    primary,
-    social,
-  } = emails;
+  const { allEmails, promotion, primary, social } = emails;
 
   const handleClick = () => {
     setIsOpenCart(!isOpenCart);
@@ -145,72 +133,19 @@ function EmailContainer(props) {
       <div className="email__list">
         <div className="email__row__container">
           <Switch>
-            <Route
-              exact
-              path={`${props.path}/inbox`}
-              component={() => <Inbox data={inbox} />}
-            />
-            <Route
-              exact
-              path={`${path}/stared`}
-              component={() => <Stared data={stared} />}
-            />
-            <Route
-              exact
-              path={`${path}/sent`}
-              component={() => <Sent data={sent} />}
-            />
-            <Route
-              exact
-              path={`${path}/snoozed`}
-              component={() => <Snoozed data={snoozed} />}
-            />
-            <Route
-              exact
-              path={`${path}/draft`}
-              component={() => <Draft data={draft} />}
-            />
-            <Route
-              exact
-              path={`${path}/important`}
-              component={() => <Important data={important} />}
-            />
-
-            <Route exact path={`${path}/chat`} component={() => <Chat />} />
-
-            <Route
-              exact
-              path={`${path}/sheduled`}
-              component={() => <Sheduled data={sheduled} />}
-            />
-
-            <Route
-              exact
-              path={`${path}/allmails`}
-              component={() => <AllMails data={allEmails} />}
-            />
-
-            <Route
-              exact
-              path={`${path}/spam`}
-              component={() => <Spam data={spam} />}
-            />
-
-            <Route
-              exact
-              path={`${path}/promotion`}
-              component={() => <Promotion data={promotion} />}
-            />
-            <Route
-              exact
-              path={`${path}/primary`}
-              component={() => <Primary data={primary} />}
-            />
-            <Route
-              exact
-              path={`${path}/social`}
-              component={(props) => <Social data={social} {...props} />}
-            />
+            <Route exact path={`${props.path}/inbox`} component={Inbox} />
+            <Route exact path={`${path}/stared`} component={Stared} />
+            <Route exact path={`${path}/sent`} component={Sent} />
+            <Route exact path={`${path}/snoozed`} component={Snoozed} />
+            <Route exact path={`${path}/draft`} component={Draft} />
+            <Route exact path={`${path}/important`} component={Important} />
+            <Route exact path={`${path}/chat`} component={Chat} />
+            <Route exact path={`${path}/sheduled`} component={Sheduled} />
+            <Route exact path={`${path}/allmails`} component={AllMails} />
+            <Route exact path={`${path}/spam`} component={Spam} />
+            <Route exact path={`${path}/promotion`} component={Promotion} />
+            <Route exact path={`${path}/primary`} component={Primary} />
+            <Route exact path={`${path}/social`} component={Social} />
             <Route exact path={`${path}/detail/:id`} component={EmailDetail} />
           </Switch>
         </div>

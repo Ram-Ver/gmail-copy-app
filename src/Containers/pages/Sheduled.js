@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import EmailRow from "../../Components/emailComponents/EmailRow";
 
-function Sheduled({ data }) {
+function Sheduled(props) {
+  const data = useSelector((state) => state.emails.sheduled);
+  useEffect(() => {
+    console.log(props, "in sheduled");
+  }, []);
+
   return (
     <div>
       {data.map((item) => (

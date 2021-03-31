@@ -13,6 +13,7 @@ function SentEmail() {
     subject: "",
     description: "",
     label: "sent",
+    time: moment().format("LT"),
   });
 
   const dispatch = useDispatch();

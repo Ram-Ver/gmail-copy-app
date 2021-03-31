@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import EmailRow from "../../Components/emailComponents/EmailRow";
 
-function Draft({ data }) {
+function Draft() {
+  const data = useSelector((state) => state.emails.draft);
   return (
     <div>
       {data.map((item) => (
@@ -13,7 +15,6 @@ function Draft({ data }) {
           description={item.description}
           time={item.time}
           label={item.label}
-          // getRowId={getRowId}
         />
       ))}
     </div>

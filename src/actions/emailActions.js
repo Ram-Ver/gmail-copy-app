@@ -12,6 +12,10 @@ import {
   GET__EMAIL__DETAIL__REQUESTED,
   GET__EMAIL__DETAIL__FAILURE,
   GET__EMAIL__DETAIL__SUCCESS,
+  DELETE__EMAIL,
+  DELETE__EMAIL__REQUESTED,
+  DELETE__EMAIL__FAILURE,
+  DELETE__EMAIL__SUCCESS,
 } from "../Constants/emailConstants.js";
 
 const fetchEmails = createAction(FETCH__EMAILS);
@@ -29,6 +33,11 @@ const getEmailDetailRequested = createAction(GET__EMAIL__DETAIL__REQUESTED);
 const getEmailDetailFailure = createAction(GET__EMAIL__DETAIL__FAILURE);
 const getEmailDetailSuccess = createAction(GET__EMAIL__DETAIL__SUCCESS);
 
+const deleteEmail = createAction(DELETE__EMAIL);
+const deleteEmailRequested = createAction(DELETE__EMAIL__REQUESTED);
+const deleteEmailFailure = createAction(DELETE__EMAIL__FAILURE);
+const deleteEmailSuccess = createAction(DELETE__EMAIL__SUCCESS);
+
 export {
   fetchEmails,
   fetchEmailsRequested,
@@ -42,4 +51,8 @@ export {
   getEmailDetailRequested,
   getEmailDetailFailure,
   getEmailDetailSuccess,
+  deleteEmail,
+  deleteEmailRequested,
+  deleteEmailFailure,
+  deleteEmailSuccess,
 };

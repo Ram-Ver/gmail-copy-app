@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import EmailRow from "../../Components/emailComponents/EmailRow";
 
-function Spam({ data }) {
+function Spam() {
+  const data = useSelector((state) => state.emails.spam);
+
   return (
     <div>
       {data.map((item) => (

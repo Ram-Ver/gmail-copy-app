@@ -12,6 +12,10 @@ import {
   GET__EMAIL__DETAIL__REQUESTED,
   GET__EMAIL__DETAIL__FAILURE,
   GET__EMAIL__DETAIL__SUCCESS,
+  DELETE__EMAIL,
+  DELETE__EMAIL__REQUESTED,
+  DELETE__EMAIL__FAILURE,
+  DELETE__EMAIL__SUCCESS,
 } from "../Constants/emailConstants";
 
 import httpClient from "../utility/http-client";
@@ -70,6 +74,7 @@ function* sentEmailHandler({ payload }) {
 }
 
 function* getEmailDetailHandler({ payload }) {
+  console.log("saga working email");
   yield put({
     type: GET__EMAIL__DETAIL__REQUESTED,
     status: "requested",
@@ -78,7 +83,6 @@ function* getEmailDetailHandler({ payload }) {
   const configuration = {
     url: `/emails/${payload}`,
     method: "get",
-    data: null,
   };
 
   const result = yield call(httpClient, configuration);
@@ -97,11 +101,39 @@ function* getEmailDetailHandler({ payload }) {
   }
 }
 
+function* deleteEmailHandler({ payload }) {
+  console.log("saga working email");
+  yield put({
+    type: DELETE__EMAIL__REQUESTED,
+    status: "requested",
+  });
+
+  const configuration = {
+    url: `/emails/${payload}`,
+    method: "delete",
+  };
+
+  const result = yield call(httpClient, configuration);
+  if (result.error) {
+    yield put({
+      type: DELETE__EMAIL__FAILURE,
+      status: "failure",
+      payload: result.error,
+    });
+  } else {
+    yield put({
+      type: DELETE__EMAIL__SUCCESS,
+      payload: result.data,
+      status: "success",
+    });
+  }
+}
 function* emailSaga() {
   yield all([
     takeLatest(FETCH__EMAILS, fetchEmailsHandler),
     takeLatest(SENT__EMAIL, sentEmailHandler),
     takeLatest(GET__EMAIL__DETAIL, getEmailDetailHandler),
+    takeLatest(DELETE__EMAIL, deleteEmailHandler),
   ]);
 }
 

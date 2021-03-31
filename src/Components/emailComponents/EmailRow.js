@@ -1,20 +1,28 @@
-import { Checkbox } from "@material-ui/core";
+import { Checkbox, IconButton } from "@material-ui/core";
 import { StarBorder } from "@material-ui/icons";
-import React from "react";
+import DeleteIcon from "@material-ui/icons/Delete";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { setEmailRowId } from "../../actions/emailActions";
+import {
+  deleteEmail,
+  fetchEmails,
+  setEmailRowId,
+} from "../../actions/emailActions";
 
 function EmailRow({ title, subject, description, time, id, label }) {
-  const dispatch = useDispatch();
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const onRowClickHandler = (id) => {
-    // dispatch(setEmailRowId(id));
     history.push(`/admin/detail/${id}`);
   };
   const onCheckHandler = (e) => {
     console.log(e.target.checked, "event of check box");
+  };
+  const deleteEmailHandler = () => {
+    dispatch(deleteEmail(id));
+    dispatch(fetchEmails());
   };
   return (
     <div className="email__row">
@@ -34,8 +42,11 @@ function EmailRow({ title, subject, description, time, id, label }) {
         <p>-{description}</p>
       </div>
       <div className="email__row__right__section">
-        <span> 10pm</span>
+        <span> {time}</span>
       </div>
+      <IconButton onClick={deleteEmailHandler}>
+        <DeleteIcon />
+      </IconButton>
     </div>
   );
 }

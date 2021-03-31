@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import EmailRow from "../../Components/emailComponents/EmailRow";
 
-function Important({ data }) {
+function Important() {
+  const data = useSelector((state) => state.emails.important);
   return (
     <div>
       {data.map((item) => (

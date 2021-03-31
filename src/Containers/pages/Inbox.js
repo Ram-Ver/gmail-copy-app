@@ -1,8 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import EmailRow from "../../Components/emailComponents/EmailRow";
 import AppLoader from "../../Components/Loader";
 
-function Inbox({ data, getRowId }) {
+function Inbox() {
+  const data = useSelector((state) => state.emails.inbox);
+
   return (
     <div>
       {data.map((item) => (
@@ -13,7 +16,7 @@ function Inbox({ data, getRowId }) {
           subject={item.subject}
           description={item.description}
           time={item.time}
-          getRowId={getRowId}
+          // getRowId={getRowId}
         />
       ))}
     </div>

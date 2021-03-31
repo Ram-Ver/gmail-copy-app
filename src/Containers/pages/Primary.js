@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import EmailRow from "../../Components/emailComponents/EmailRow";
 
-function Primary({ data }) {
+function Primary() {
+  const data = useSelector((state) => state.emails.primary);
+
   return (
     <div>
       {data.map((item) => (

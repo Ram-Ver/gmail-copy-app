@@ -1,4 +1,4 @@
-import { call, delay, put } from "@redux-saga/core/effects";
+import { call } from "@redux-saga/core/effects";
 import { toast } from "react-toastify";
 import axiosInstance from "./axiosInstance";
 

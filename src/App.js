@@ -6,9 +6,13 @@ import { NotFound } from "./Containers/pages";
 import PrivateRoute from "./Components/Routes/PrivateRoute";
 import PublicRoute from "./Components/Routes/PublicRoute";
 import LoginComponent from "./Containers/LoginComponent.js";
+import { useEffect } from "react";
 
 function App() {
   const isAuthunticate = localStorage.getItem("login");
+  useEffect(() => {
+    console.log("app container mount");
+  });
 
   return (
     <>

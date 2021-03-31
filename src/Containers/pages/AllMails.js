@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import EmailRow from "../../Components/emailComponents/EmailRow";
 
-function AllMails({ data }) {
+function AllMails() {
+  const data = useSelector((state) => state.emails.allEmails);
+
   return (
     <div>
       {data.map((item) => (
