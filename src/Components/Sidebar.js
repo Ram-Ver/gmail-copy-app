@@ -1,7 +1,7 @@
 import { Button } from "@material-ui/core";
-import { Chat, InboxOutlined } from "@material-ui/icons";
+import { InboxOutlined } from "@material-ui/icons";
 import AddIcon from "@material-ui/icons/Add";
-import React, { useEffect } from "react";
+import React from "react";
 import SidebarOptions from "./SidebarOptions";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import SnoozeIcon from "@material-ui/icons/Snooze";
@@ -10,8 +10,7 @@ import DraftsIcon from "@material-ui/icons/Drafts";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import KeyboardIcon from "@material-ui/icons/Keyboard";
 import { useDispatch, useSelector } from "react-redux";
-import { showSentBox } from "../actions/otherActions";
-import { useHistory } from "react-router-dom";
+import { showSentBox } from "../actions/appActions";
 import LabelImportantIcon from "@material-ui/icons/LabelImportant";
 import ChatIcon from "@material-ui/icons/Chat";
 import ScheduleIcon from "@material-ui/icons/Schedule";
@@ -21,14 +20,9 @@ import ReportIcon from "@material-ui/icons/Report";
 function Sidebar({ path }) {
   const emails = useSelector((state) => state.emails);
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const composeHandler = () => {
     dispatch(showSentBox(true));
-  };
-
-  const sentComponentSelectHandler = (componentPath) => {
-    history.push(componentPath);
   };
 
   const {
@@ -41,9 +35,6 @@ function Sidebar({ path }) {
     sheduled,
     important,
     spam,
-    promotion,
-    primary,
-    social,
   } = emails;
   return (
     <div className="sidebar">

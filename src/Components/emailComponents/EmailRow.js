@@ -1,14 +1,10 @@
 import { Checkbox, IconButton } from "@material-ui/core";
 import { StarBorder } from "@material-ui/icons";
 import DeleteIcon from "@material-ui/icons/Delete";
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import {
-  deleteEmail,
-  fetchEmails,
-  setEmailRowId,
-} from "../../actions/emailActions";
+import { deleteEmail, fetchEmails } from "../../actions/emailActions";
 
 function EmailRow({ title, subject, description, time, id, label }) {
   const history = useHistory();

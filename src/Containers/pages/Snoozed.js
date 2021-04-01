@@ -16,7 +16,6 @@ function Snoozed() {
           description={item.description}
           time={item.time}
           label={item.label}
-          // getRowId={getRowId}
         />
       ))}
     </div>

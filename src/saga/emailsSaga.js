@@ -30,7 +30,7 @@ function* fetchEmailsHandler({ payload }) {
     url: "/emails",
     method: "get",
   };
-  const result = yield call(httpClient, configuration);
+  const result = yield call(httpClient, configuration, true, true);
   if (result.error) {
     yield put({
       type: FETCH__EMAILS__FAILURE,
@@ -57,7 +57,7 @@ function* sentEmailHandler({ payload }) {
     method: "post",
     data: payload,
   };
-  const result = yield call(httpClient, configuration);
+  const result = yield call(httpClient, configuration, true, true);
   if (result.error) {
     yield put({
       type: SENT__EMAIL__FAILURE,
@@ -85,7 +85,7 @@ function* getEmailDetailHandler({ payload }) {
     method: "get",
   };
 
-  const result = yield call(httpClient, configuration);
+  const result = yield call(httpClient, configuration, true, true);
   if (result.error) {
     yield put({
       type: GET__EMAIL__DETAIL__FAILURE,
@@ -113,7 +113,7 @@ function* deleteEmailHandler({ payload }) {
     method: "delete",
   };
 
-  const result = yield call(httpClient, configuration);
+  const result = yield call(httpClient, configuration, true, true);
   if (result.error) {
     yield put({
       type: DELETE__EMAIL__FAILURE,

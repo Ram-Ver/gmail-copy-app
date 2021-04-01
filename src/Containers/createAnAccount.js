@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import { createAnAccount } from "../actions/otherActions";
+import { createAnAccount } from "../actions/appActions";
 
 function CreateAnAccount() {
   const history = useHistory();

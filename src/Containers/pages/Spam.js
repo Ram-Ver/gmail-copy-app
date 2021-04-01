@@ -15,7 +15,6 @@ function Spam() {
           subject={item.subject}
           description={item.description}
           time={item.time}
-          // getRowId={getRowId}
         />
       ))}
     </div>

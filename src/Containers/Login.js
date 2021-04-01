@@ -21,17 +21,21 @@ function Login() {
 
   const loginHandler = (e) => {
     e.preventDefault();
-    const singleUser = users.find(
-      (userdata) =>
-        userdata.email === username && userdata.password === password
-    );
-    if (username === singleUser?.email && password === singleUser?.password) {
-      history.push("/admin/inbox");
-      localStorage.setItem("login", "true");
-    } else if (username === "" || password === "") {
-      toast.error("email/phone or password  not allowed to be empty");
+    if (userLoginDetail.username === "" || userLoginDetail.password === "") {
+      toast.warn("please enter your Usrname and Password first");
     } else {
-      toast.error("Invalid email/phone or passowrd");
+      const singleUser = users.find(
+        (userdata) =>
+          userdata.email === username && userdata.password === password
+      );
+      if (username === singleUser?.email && password === singleUser?.password) {
+        history.push("/admin/inbox");
+        localStorage.setItem("login", "true");
+      } else if (username === "" || password === "") {
+        toast.error("email/phone or password  not allowed to be empty");
+      } else {
+        toast.error("Invalid email/phone or passowrd");
+      }
     }
     setUserLoginDetail({ username: "", password: "" });
   };

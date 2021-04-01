@@ -19,7 +19,7 @@ function* fetchUsersHandler(payload) {
     method: "get",
     data: null,
   };
-  const result = yield call(httpClient, configuration);
+  const result = yield call(httpClient, configuration, true, true);
   if (result.error) {
     yield put({
       type: FETCH__USERS__FAILURE,

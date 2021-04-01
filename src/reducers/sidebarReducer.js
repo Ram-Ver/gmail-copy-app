@@ -2,7 +2,7 @@ import {
   SIDEBAR__TOGGLE,
   SHOW__SENTBOX,
   HIDE__SENTBOX,
-} from "../Constants/otherConstants";
+} from "../Constants/appConstants";
 
 const iState = {
   isSidebarOpen: true,

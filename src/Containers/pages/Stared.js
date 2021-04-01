@@ -16,7 +16,6 @@ function Stared() {
           description={item.description}
           time={item.time}
           label={item.label}
-          // getRowId={getRowId}
         />
       ))}
     </div>

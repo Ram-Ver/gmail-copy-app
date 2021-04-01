@@ -1,12 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import EmailRow from "../../Components/emailComponents/EmailRow";
 
 function Sheduled(props) {
   const data = useSelector((state) => state.emails.sheduled);
-  useEffect(() => {
-    console.log(props, "in sheduled");
-  }, []);
 
   return (
     <div>
@@ -18,7 +15,6 @@ function Sheduled(props) {
           subject={item.subject}
           description={item.description}
           time={item.time}
-          // getRowId={getRowId}
         />
       ))}
     </div>

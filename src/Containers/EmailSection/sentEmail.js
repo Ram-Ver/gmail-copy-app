@@ -3,7 +3,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import { IconButton, TextareaAutosize } from "@material-ui/core";
 import { fetchEmails, sentEmail } from "../../actions/emailActions";
 import { useDispatch } from "react-redux";
-import { hideSentBox } from "../../actions/otherActions";
+import { hideSentBox } from "../../actions/appActions";
 import moment from "moment";
 import { toast } from "react-toastify";
 

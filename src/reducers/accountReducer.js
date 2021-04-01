@@ -2,7 +2,7 @@ import {
   CREATE__AN__ACCOUNT__FAILURE,
   CREATE__AN__ACCOUNT__REQUESTED,
   CREATE__AN__ACCOUNT__SUCCESS,
-} from "../Constants/otherConstants";
+} from "../Constants/appConstants";
 
 const iState = {
   createAnAccountStatus: "",

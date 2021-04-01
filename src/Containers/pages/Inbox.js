@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import EmailRow from "../../Components/emailComponents/EmailRow";
-import AppLoader from "../../Components/Loader";
 
 function Inbox() {
   const data = useSelector((state) => state.emails.inbox);
@@ -16,7 +15,6 @@ function Inbox() {
           subject={item.subject}
           description={item.description}
           time={item.time}
-          // getRowId={getRowId}
         />
       ))}
     </div>

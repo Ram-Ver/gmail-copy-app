@@ -4,7 +4,7 @@ import {
   CREATE__AN__ACCOUNT__FAILURE,
   CREATE__AN__ACCOUNT__REQUESTED,
   CREATE__AN__ACCOUNT__SUCCESS,
-} from "../Constants/otherConstants";
+} from "../Constants/appConstants";
 import httpClient from "../utility/http-client";
 
 function* createAnAccountHandler({ payload }) {
@@ -18,7 +18,7 @@ function* createAnAccountHandler({ payload }) {
     method: "post",
     data: payload,
   };
-  const result = yield call(httpClient, configuration);
+  const result = yield call(httpClient, configuration, true, true);
   if (result.error) {
     yield put({
       type: CREATE__AN__ACCOUNT__FAILURE,
